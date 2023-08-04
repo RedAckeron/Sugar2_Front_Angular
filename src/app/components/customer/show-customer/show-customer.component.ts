@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { forkJoin } from 'rxjs';
 import { Customer } from 'src/app/models/customer';
 import { CustomerService } from 'src/app/services/customer.service';
 
@@ -9,14 +9,30 @@ import { CustomerService } from 'src/app/services/customer.service';
   styleUrls: ['./show-customer.component.scss']
 })
 export class ShowCustomerComponent implements OnInit {
-  //CurrentCustomer:Observable<Customer>=of();
+  CurrentCustomer!:Customer;
   constructor(private _customerService:CustomerService){}
 
 ngOnInit(): void 
   {
-    
-   // this.CurrentCustomer=this._customerService.Read(1);
+forkJoin([
+  this._customerService.GetCustomer(1)
+  
+]).subscribe(([cust])=>
+  {
+  this.CurrentCustomer=cust;//customer
+  //address
+  //odp
+  //cmd
+  //fact
+  //repair
+  //dlc
+  }
 
-    
+
+
+
+  //this._customerService.GetCustomer(1).subscribe((data)=>this.CurrentCustomer=data);
+ 
+  )
   }
 }

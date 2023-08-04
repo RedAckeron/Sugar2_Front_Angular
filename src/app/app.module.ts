@@ -14,13 +14,13 @@ import { AddCustomerComponent } from './components/customer/add-customer/add-cus
 import { AddCommandComponent } from './components/command/add-command/add-command.component';
 import { ShowCommandComponent } from './components/command/show-command/show-command.component';
 import { LobbyComponent } from './components/Admin/lobby/lobby.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-   
     NavbarComponent,
-   
     FooterComponent,
     ProfilComponent,
     RegisterComponent,
@@ -28,13 +28,15 @@ import { LobbyComponent } from './components/Admin/lobby/lobby.component';
     AddCustomerComponent,
     AddCommandComponent,
     ShowCommandComponent,
-    LobbyComponent
+    LobbyComponent,
+    ListCustomerComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

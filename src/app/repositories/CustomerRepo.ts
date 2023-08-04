@@ -15,4 +15,12 @@ export class CustomerRepo {
     {
     return this._httpClient.get<Customer>(this._url + "Read/" + IdCust);
     }
+    
+    ReadLastCustomers(NameCust: string):Observable<Customer[]>  
+    {
+    return this._httpClient.get<Customer[]>(this._url + "FindCustomer/" + NameCust);
+    }
+
+
+
 }

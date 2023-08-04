@@ -8,7 +8,11 @@ import { Observable } from 'rxjs';
 })
 export class CustomerService 
   {
-  constructor(private _CustomerRepo:CustomerRepo){}
+   
+  constructor(private _CustomerRepo:CustomerRepo){
+
+  }
+  
   
 GetCustomer(IdCust:number):Observable<Customer>
     {
@@ -16,26 +20,17 @@ GetCustomer(IdCust:number):Observable<Customer>
     }
 
 
+    ReadLastCustomers(CustName:string):Observable<Customer[]>
+    {
+      return this._CustomerRepo.ReadLastCustomers(CustName);
+    }
 
 
-
-  /*
-  Read(IdCust: number):Customer{
-    let cust:Customer;
-    //return this._MapRepo.GetMap(IdPlanet)
-    this._CustomerRepo.GetCustomer(IdCust).subscribe( {
-      next: (res) => 
-        {
-        console.log(res);
-        cust=res;
-        },
-      error: () => {},
-      complete: () => {
-      this.result = cust}
-    })
-   return this.result;
+  
    
-}
-*/
+  
+   
+
+
 }
 

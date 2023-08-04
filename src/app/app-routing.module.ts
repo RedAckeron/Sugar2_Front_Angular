@@ -5,12 +5,14 @@ import { ShowCustomerComponent } from './components/customer/show-customer/show-
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { AddCommandComponent } from './components/command/add-command/add-command.component';
 import { ShowCommandComponent } from './components/command/show-command/show-command.component';
+import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 
 const routes: Routes = [
   {
     path : 'customer',children:
     [ 
-    {path : 'add',component : AddCustomerComponent},
+    {path : 'list',component : ListCustomerComponent},
+    {path : 'AddCustomer',component : AddCustomerComponent},
     {path : 'show',component : ShowCustomerComponent},
     ]
   },

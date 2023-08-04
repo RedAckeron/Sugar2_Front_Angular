@@ -1,17 +1,20 @@
+import { CustomerAddress } from "./customerAddress";
+
 export class Customer{
 
-    Id:number;
-    FirstName:string;
-    LastName:string;
-    DtIn:Date;
-    AddByUser:number;
-
-    constructor(id:number,firstname:string,lastname:string,dtin:Date,addbyuser:number)
+    id:number;
+    firstName:string;
+    lastName:string;
+    dtIn:Date;
+    addByUser:number;
+    addresses:CustomerAddress[];
+    constructor(id:number,firstname:string,lastname:string,dtin:Date,addbyuser:number,addresses:CustomerAddress[])
     {
-        this.Id=id;
-        this.FirstName=firstname;
-        this.LastName=lastname;
-        this.DtIn=dtin;
-        this.AddByUser=addbyuser;
+        this.id=id;
+        this.firstName=firstname;
+        this.lastName=lastname;
+        this.dtIn=dtin;
+        this.addByUser=addbyuser;
+        this.addresses=addresses;
     }
 }

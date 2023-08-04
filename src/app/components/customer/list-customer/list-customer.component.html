@@ -1,0 +1,20 @@
+<table class="table table-success table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Client</th>
+        <th scope="col">Add by User</th>
+        <th scope="col">Date In</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <tr *ngFor="let cust of Customers; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td> <div [routerLink]="['/customer/show']"> {{cust.firstName}} {{cust.lastName}}</div></td>
+        <td>{{cust.addByUser}}</td>
+        <td>{{cust.dtIn | date}}</td>
+      </tr>
+    
+    </tbody>
+  </table>
