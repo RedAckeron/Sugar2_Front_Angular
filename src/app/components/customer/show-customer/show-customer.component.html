@@ -6,7 +6,6 @@
   </button>
 </div>
 
-
 <!-- Quand les données sont charger on affiche l accordeon -->
 <div *ngIf="CurrentCustomer">
 <div class="accordion" id="accordionExample">
@@ -22,21 +21,61 @@
         </div>
       </div>
     </div>
+<!-- Données client-->
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#data" aria-expanded="false" aria-controls="data">
+      Données client 
+    </button>
+  </h2>
+  <div id="data" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    </div>
+  </div>
+</div>
 
 
-<!-- Address -->
+<!-- Address Command-->
+  
     <div class="accordion-item">
       <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AdrCli" aria-expanded="false" aria-controls="AdrCli">
-          Adresses
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AdrCmd" aria-expanded="false" aria-controls="AdrCmd">
+          Adresses 
         </button>
       </h2>
-      <div id="AdrCli" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+      <div id="AdrCmd" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
         <div class="accordion-body">
           <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
         </div>
       </div>
     </div>
+<!-- Address Livraison -->
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AdrLvr" aria-expanded="false" aria-controls="AdrLvr">
+      Adresses 
+    </button>
+  </h2>
+  <div id="AdrLvr" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    </div>
+  </div>
+</div>
+<!-- Address Facturation -->
+<div class="accordion-item">
+  <h2 class="accordion-header">
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#AdrFct" aria-expanded="false" aria-controls="AdrFct">
+      Adresses 
+    </button>
+  </h2>
+  <div id="AdrFct" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+    </div>
+  </div>
+</div>
 
 
     <!-- odp -->
@@ -52,6 +91,7 @@
         </div>
       </div>
     </div>
+
     <!-- commandes -->
     <div class="accordion-item">
         <h2 class="accordion-header">
@@ -65,6 +105,7 @@
           </div>
         </div>
       </div>
+
       <!-- fact -->
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -78,6 +119,7 @@
           </div>
         </div>
       </div>
+
       <!-- repair -->
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -91,6 +133,7 @@
           </div>
         </div>
       </div>
+
       <!-- dlc -->
       <div class="accordion-item">
         <h2 class="accordion-header">
@@ -105,4 +148,3 @@
         </div>
       </div>
   </div>
-</div>

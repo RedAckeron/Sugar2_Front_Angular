@@ -1,24 +1,24 @@
 export class CustomerAddress
 {
-    Id:number;
-    IdCustomer:number;
-    AdrInfo:string;
-    AdrRue:string;
-    AdrNo:string;
-    AdrVille:string;
-    AdrCp:string;
-    AdrPays:string;
+    id!:number;
+    idCustomer!:number;
+    adrInfo!:string;
+    adrRue!:string;
+    adrNo!:string;
+    adrVille!:string;
+    adrCp!:string;
+    adrPays!:string;
 
-   constructor(Id:number,IdCustomer:number,AdrInfo:string,AdrRue:string,AdrNo:string,AdrVille:string,AdrCp:string,AdrPays:string)
-    {
-    this.Id=Id;
-    this.IdCustomer=IdCustomer;
-    this.AdrInfo=AdrInfo;
-    this.AdrRue=AdrRue;
-    this.AdrNo=AdrNo;
-    this.AdrVille=AdrVille;
-    this.AdrCp=AdrCp;
-    this.AdrPays=AdrPays;
-    }
+//    constructor(Id:number,IdCustomer:number,AdrInfo:string,AdrRue:string,AdrNo:string,AdrVille:string,AdrCp:string,AdrPays:string)
+//     {
+//     this.id=Id;
+//     this.idCustomer=IdCustomer;
+//     this.adrInfo=AdrInfo;
+//     this.adrRue=AdrRue;
+//     this.adrNo=AdrNo;
+//     this.adrVille=AdrVille;
+//     this.adrCp=AdrCp;
+//     this.adrPays=AdrPays;
+//     }
 
 }

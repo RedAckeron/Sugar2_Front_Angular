@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { forkJoin } from 'rxjs';
 import { Customer } from 'src/app/models/customer';
+import { CustomerAddress } from 'src/app/models/customerAddress';
+import { AddressService } from 'src/app/services/address.service';
 import { CustomerService } from 'src/app/services/customer.service';
 
 @Component({
@@ -10,16 +12,31 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class ShowCustomerComponent implements OnInit {
   CurrentCustomer!:Customer;
-  constructor(private _customerService:CustomerService){}
-
+  step:number=1;
+  address!:Array<CustomerAddress>;
+  IdCust:number=1;//a remplacer par un parametre 
+  constructor(private _customerService:CustomerService,private _addressService:AddressService){}
 ngOnInit(): void 
   {
 forkJoin([
-  this._customerService.GetCustomer(1)
-  
-]).subscribe(([cust])=>
+    this._customerService.ReadCustomer(this.IdCust),
+    this._addressService.ReadAllCustomerAddress(this.IdCust)
+]).subscribe(([cust,custadr])=>
   {
   this.CurrentCustomer=cust;//customer
+  console.log(this.CurrentCustomer);
+  this.address=custadr;
+  console.log(this.CurrentCustomer);
+  //this.CurrentCustomer.addresses=custAdr;
+  
+ 
+   
+  
+ 
+ });
+  
+  
+  //
   //address
   //odp
   //cmd
@@ -33,6 +50,6 @@ forkJoin([
 
   //this._customerService.GetCustomer(1).subscribe((data)=>this.CurrentCustomer=data);
  
-  )
-  }
+  
+  
 }

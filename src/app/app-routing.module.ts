@@ -6,13 +6,16 @@ import { AddCustomerComponent } from './components/customer/add-customer/add-cus
 import { AddCommandComponent } from './components/command/add-command/add-command.component';
 import { ShowCommandComponent } from './components/command/show-command/show-command.component';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
+import { HomeComponent } from './components/home/home.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 const routes: Routes = [
+  {path : '',component : HomeComponent},
   {
     path : 'customer',children:
     [ 
     {path : 'list',component : ListCustomerComponent},
-    {path : 'AddCustomer',component : AddCustomerComponent},
+    {path : 'add',component : AddCustomerComponent},
     {path : 'show',component : ShowCustomerComponent},
     ]
   },
@@ -50,6 +53,7 @@ const routes: Routes = [
       {path : 'show',component : ShowCommandComponent},
     ]
   },
+  {path:'**',component:NotFoundComponent}
 ];
 
 @NgModule({

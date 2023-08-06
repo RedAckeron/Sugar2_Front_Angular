@@ -1,36 +1,28 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Customer } from '../models/customer';
-import { CustomerRepo } from '../repositories/CustomerRepo';
 import { Observable } from 'rxjs';
-
+import { Customer } from '../models/customer';
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService 
   {
-   
-  constructor(private _CustomerRepo:CustomerRepo){
-
+  private _url: string = "https://localhost:7266/Customer/";
+  constructor(private _httpClient: HttpClient) {}
+  
+  CreateCustomer(Cust:Customer):any
+  {
+    console.log("Create customer : "+JSON.stringify(Cust));
+    return this._httpClient.post<Customer>(this._url + "Create", Cust);
   }
-  
-  
-GetCustomer(IdCust:number):Observable<Customer>
+
+  ReadCustomer(IdCust:number):Observable<Customer>
     {
-      return this._CustomerRepo.Read(IdCust)
+      return this._httpClient.get<Customer>(this._url + "Read/" + IdCust);
     }
-
-
-    ReadLastCustomers(CustName:string):Observable<Customer[]>
+  
+  ReadLastCustomers(CustName:string):Observable<Customer[]>
     {
-      return this._CustomerRepo.ReadLastCustomers(CustName);
+      return this._httpClient.get<Customer[]>(this._url + "findCustomer/" + CustName);
     }
-
-
-  
-   
-  
-   
-
-
-}
-
+  }
