@@ -33,7 +33,7 @@ export class AddCustomerComponent {
         this.registerForm.markAllAsTouched();
         console.log("not valid form");
         }
-    else 
+    else
         {
         console.log("valid form");
         let custAdr =new Array<CustomerAddress>;
@@ -49,6 +49,6 @@ export class AddCustomerComponent {
         custAdr);
         this._customerService.CreateCustomer(cust).subscribe();
         }
-        
+
     }
 }

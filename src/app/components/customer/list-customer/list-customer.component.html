@@ -1,4 +1,4 @@
-<table class="table table-success table-striped">
+<table class="table table-striped">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -8,13 +8,13 @@
       </tr>
     </thead>
     <tbody>
-      
-        <tr *ngFor="let cust of Customers; let i=index">
+
+        <tr *ngFor="let cust of Customers; let i=index" [routerLink]="['/customer/show/'+cust.id]">
         <th scope="row">{{i+1}}</th>
-        <td> <div [routerLink]="['/customer/show']"> {{cust.firstName}} {{cust.lastName}}</div></td>
+        <td><div> {{cust.firstName}} {{cust.lastName}}</div></td>
         <td>{{cust.addByUser}}</td>
-        <td>{{cust.dtIn | date}}</td>
-      </tr>
-    
+        <td>{{cust.dtIn | date:'d/MM/YYYY'}}</td>
+        </tr>
+
     </tbody>
   </table>

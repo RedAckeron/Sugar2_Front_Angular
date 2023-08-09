@@ -33,7 +33,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     LobbyComponent,
     ListCustomerComponent,
     HomeComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

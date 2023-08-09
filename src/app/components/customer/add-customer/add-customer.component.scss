@@ -1,79 +1,17 @@
-.chapterTitle {
-    max-width: 1000px;
-    background-color: rgb(192, 174, 174);
-    padding: 1%;
-    width: 90%;
+.FormTitle {
+    background-color: rgb(207, 207, 207);
+
     margin : auto;
     margin-bottom: 3px;
     text-align: center;
 }
-.chapter {
-    max-width: 1000px;
-    background-color: lightgrey;
-    padding: 1%;
-    width: 90%;
-    margin : auto;
-    margin-bottom: 1%;
-}
+.label{
 
-.button {
-    padding: 1% 1%;
-    background-color: black;
-    color : white;
-    border : 1px solid black;
-    margin : 1%;
-    width: 40%;
-}
-
-.button:hover {
-    background-color: white;
-    color : black;
-    border : 1px solid black;
-}
-
-.form-group {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    margin-bottom: 2%;
-}
-
-
-.form-submit {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-label {
-    width: 20%;
-}
-input:not(input[type="submit"], input[type="checkbox"]) {
-    width: 50%;
-    height: 26px;
-
-}
-
-input:focus:not(input[type="checkbox"], input[type="submit"]) {
-    outline: 1px solid black;
-}
-
-input[type="checkbox"]{
-    transform: scale(1.75);
-}
-
-input[type="checkbox"]:checked{
-    accent-color: black;
-
-}
-
-select {
-    width: 50%;
-    height: 26px;
-    background-color: white;
+width:200px;
 }
 
 .txt-error {
-    width: 25%;
+    width: 100%;
     margin-left: 1%;
     color : darkred;
     font-size: small;

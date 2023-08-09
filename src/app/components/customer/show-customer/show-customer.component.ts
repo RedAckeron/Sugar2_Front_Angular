@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Customer } from 'src/app/models/customer';
 import { CustomerAddress } from 'src/app/models/customerAddress';
@@ -12,11 +13,19 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class ShowCustomerComponent implements OnInit {
   CurrentCustomer!:Customer;
-  step:number=1;
+
+
+
   address!:Array<CustomerAddress>;
-  IdCust:number=1;//a remplacer par un parametre 
-  constructor(private _customerService:CustomerService,private _addressService:AddressService){}
-ngOnInit(): void 
+  IdCust:number=1;//a remplacer par un parametre
+  constructor(private _customerService:CustomerService,private _addressService:AddressService,private _active_router:ActivatedRoute){
+if(_active_router.snapshot.params['id']!=null)
+{
+  this.IdCust=_active_router.snapshot.params['id'];
+  console.log("Id Customer : "+_active_router.snapshot.params['id']);
+}
+  }
+ngOnInit(): void
   {
 forkJoin([
     this._customerService.ReadCustomer(this.IdCust),
@@ -24,18 +33,17 @@ forkJoin([
 ]).subscribe(([cust,custadr])=>
   {
   this.CurrentCustomer=cust;//customer
-  console.log(this.CurrentCustomer);
   this.address=custadr;
   console.log(this.CurrentCustomer);
   //this.CurrentCustomer.addresses=custAdr;
-  
- 
-   
-  
- 
+
+
+
+
+
  });
-  
-  
+
+
   //
   //address
   //odp
@@ -49,7 +57,7 @@ forkJoin([
 
 
   //this._customerService.GetCustomer(1).subscribe((data)=>this.CurrentCustomer=data);
- 
-  
-  
+
+
+
 }

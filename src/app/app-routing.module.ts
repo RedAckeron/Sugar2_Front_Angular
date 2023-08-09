@@ -13,42 +13,42 @@ const routes: Routes = [
   {path : '',component : HomeComponent},
   {
     path : 'customer',children:
-    [ 
+    [
     {path : 'list',component : ListCustomerComponent},
     {path : 'add',component : AddCustomerComponent},
-    {path : 'show',component : ShowCustomerComponent},
+    {path : 'show/:id',component : ShowCustomerComponent},
     ]
   },
   {
     path : 'odp',children:
-    [ 
+    [
     {path : 'add',component : AddCommandComponent},
     {path : 'show',component : ShowCommandComponent},
     ]
   },
   {
     path : 'cmd',children:
-    [ 
+    [
     {path : 'add',component : AddCommandComponent},
     {path : 'show',component : ShowCommandComponent},
     ]
   },
   {
     path : 'fct',children:
-    [ 
+    [
     {path : 'add',component : AddCommandComponent},
     {path : 'show',component : ShowCommandComponent},
     ]
   },
   {
     path : 'admin',children:
-    [ 
+    [
       {path : 'add',component : AddCommandComponent},
       {path : 'show',component : ShowCommandComponent},
     ]
   },
   {path : 'exos',children:
-    [ 
+    [
       {path : 'add',component : AddCommandComponent},
       {path : 'show',component : ShowCommandComponent},
     ]
