@@ -1,6 +1,6 @@
 import { AbstractControl, ValidationErrors } from "@angular/forms";
 
-export function emailValidator(control:AbstractControl):ValidationErrors | null
+export function Kp_EmailValidator(control:AbstractControl):ValidationErrors | null
 {
 let error:ValidationErrors;
 if (control.value)
@@ -10,17 +10,14 @@ if (control.value)
       error={message:"Votre Email est incorrect"}
       return error;
     }
+  }
 if(control.value.length<=5)
 {
-
-  //return ={message:"pas bien "}
+  error={message:"Votre Email est trop court"}
+      return error;
 }
 return null
-  }
-  else
-  {
-    return null
-  }
+ 
 
 }
 

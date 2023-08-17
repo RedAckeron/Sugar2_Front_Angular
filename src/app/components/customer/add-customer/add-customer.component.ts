@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
-import { Customer } from 'src/app/models/customer';
-import { CustomerAddress } from 'src/app/models/customerAddress';
-import { CustomerService } from 'src/app/services/customer.service';
-
+import { Customer } from 'src/app/Models/customer';
+import { CustomerAddress } from 'src/app/Models/customerAddress';
+import { CustomerService } from 'src/app/Services/customer.service';
+import { Kp_EmailValidator } from 'src/app/Validators/EmailValidator';
 @Component({
   selector: 'app-add-customer',
   templateUrl: './add-customer.component.html',

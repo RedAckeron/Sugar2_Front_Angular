@@ -1,14 +1,24 @@
 .footerbox{
-
-    background-color: rgb(233, 233, 233);
+    background-color: rgb(231, 231, 231);
+    width: 100%;
+    height: 100%;
+display: flex;
+background-color:#CFE2FF;
 }
+
 .footerboxname
 {
+    flex :auto;
+}
 
-float: left;
+.footeridUser
+{   
+    flex :auto;
+
 }
 .footerboxanno
-{
-float: right;
+{   
+    flex :auto;
 
+    text-align: right;
 }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Customer } from 'src/app/models/customer';
-import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/Models/customer';
+import { CustomerService } from 'src/app/Services/customer.service';
 
 @Component({
   selector: 'app-list-customer',
@@ -15,6 +15,5 @@ export class ListCustomerComponent implements OnInit {
 ngOnInit(): void 
   {
   this._customerService.ReadLastCustomers("j").subscribe((data)=>this.Customers=data);
- 
   }
 }

@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { LoginComponent } from './components/user/login/login.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

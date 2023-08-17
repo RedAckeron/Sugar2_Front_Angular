@@ -8,9 +8,19 @@ import { ShowCommandComponent } from './components/command/show-command/show-com
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { Customer } from './Models/customer';
+import { LoginComponent } from './components/user/login/login.component';
+import { ProfilComponent } from './components/user/profil/profil.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
+  {
+    path : 'user',children:
+    [
+    {path : 'login',component : LoginComponent},
+    {path : 'profil',component : ProfilComponent},
+    ]
+  },
   {
     path : 'customer',children:
     [

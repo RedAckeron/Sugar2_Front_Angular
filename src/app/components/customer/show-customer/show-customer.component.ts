@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { Customer } from 'src/app/models/customer';
-import { CustomerAddress } from 'src/app/models/customerAddress';
-import { AddressService } from 'src/app/services/address.service';
-import { CustomerService } from 'src/app/services/customer.service';
+import { Customer } from 'src/app/Models/customer';
+import { CustomerAddress } from 'src/app/Models/customerAddress';
+import { AddressService } from 'src/app/Services/address.service';
+import { CustomerService } from 'src/app/Services/customer.service';
 
 @Component({
   selector: 'app-show-customer',
@@ -13,8 +13,6 @@ import { CustomerService } from 'src/app/services/customer.service';
 })
 export class ShowCustomerComponent implements OnInit {
   CurrentCustomer!:Customer;
-
-
 
   address!:Array<CustomerAddress>;
   IdCust:number=1;//a remplacer par un parametre
@@ -36,11 +34,6 @@ forkJoin([
   this.address=custadr;
   console.log(this.CurrentCustomer);
   //this.CurrentCustomer.addresses=custAdr;
-
-
-
-
-
  });
 
 
