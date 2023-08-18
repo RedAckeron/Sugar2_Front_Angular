@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { PrimeNGConfig } from 'primeng/api';
+import { Button, ButtonModule } from 'primeng/button';
 
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
@@ -19,6 +21,7 @@ import { ListCustomerComponent } from './components/customer/list-customer/list-
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { ToastModule } from 'primeng/toast';
 
 @NgModule({
   declarations: [
@@ -43,7 +46,9 @@ import { LoginComponent } from './components/user/login/login.component';
     AppRoutingModule,
     NgbModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

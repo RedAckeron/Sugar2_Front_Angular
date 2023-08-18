@@ -12,26 +12,43 @@ import { CustomerService } from 'src/app/Services/customer.service';
 })
 export class NavbarComponent {
   FindCustomerForm : FormGroup;
-  
+
   constructor(private _builder : FormBuilder,private _customerService:CustomerService,private _router : Router)
   {
     //On crée un nouveau formulaire grâce à notre FormBuilder et on le stocke dans notre propriété registerForm
     this.FindCustomerForm = this._builder.group({
       FormFindCustomer : [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      IdUserSelected:[]  
+      IdUserSelected:[]
     })
   }
 
   ListFindedCustomer!:Customer[];
 
+  C1:Customer=
+  {
+  id:0,
+  firstName:"choisir",
+  lastName:"Veuillez",
+  email:"",
+  call1:"",
+  call2:"",
+  dtIn: new Date,
+  addByUser:0,
+  adresses:[]
+
+  };
+
+
+
+
 GetListCustomer()
   {
     if(this.FindCustomerForm.controls['FormFindCustomer'].value!="")
     {
-    
     this._customerService.FindCustomers(this.FindCustomerForm.controls['FormFindCustomer'].value).subscribe((data)=>{
-      this.ListFindedCustomer=data;
-      this.FindCustomerForm.get("IdUserSelected")?.setValue(this.ListFindedCustomer[0].id);
+      data.unshift(this.C1);
+    this.ListFindedCustomer=data;
+    this.FindCustomerForm.get("IdUserSelected")?.setValue(this.ListFindedCustomer[0].id);
     });
     }
     else
@@ -43,7 +60,14 @@ GetListCustomer()
 
   showcustomer()
   {
-  this._router.navigate(['customer/show/',this.FindCustomerForm.controls['IdUserSelected'].value])
+    console.log(this.FindCustomerForm.controls['IdUserSelected'].value);
+
+    if(this.FindCustomerForm.controls['IdUserSelected'].value != '0')
+    {
+      this._router.routeReuseStrategy.shouldReuseRoute = () => false;
+      this._router.onSameUrlNavigation = 'reload';
+      this._router.navigate(['customer/show/',this.FindCustomerForm.controls['IdUserSelected'].value]);
+    }
   }
 }
 

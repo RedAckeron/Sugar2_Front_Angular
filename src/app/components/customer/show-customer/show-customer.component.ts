@@ -3,8 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import { forkJoin } from 'rxjs';
 import { Customer } from 'src/app/Models/customer';
 import { CustomerAddress } from 'src/app/Models/customerAddress';
-import { AddressService } from 'src/app/Services/address.service';
 import { CustomerService } from 'src/app/Services/customer.service';
+import { AddressService } from 'src/app/Services/address.service';
 
 @Component({
   selector: 'app-show-customer',

@@ -9,11 +9,10 @@
 
 		<form [formGroup]="FindCustomerForm" class="d-flex" role="search">
 			<input type="text" list="ListCust" formControlName="FormFindCustomer" placeholder="Nom du client" (keyup)="GetListCustomer()">
-			<div *ngIf="((ListFindedCustomer!=null)&&(ListFindedCustomer.length>0))">
+			<div *ngIf="((ListFindedCustomer!=null)&&(ListFindedCustomer.length>1))">
 				<select formControlName="IdUserSelected" id="ListCust" name="cars" (change)="showcustomer()" class="form-select" aria-label="small select example">
-
-					<option *ngFor="let item of ListFindedCustomer" [ngValue]="item.id">{{item.lastName}} {{item.firstName}}</option>
-				</select>
+          <option *ngFor="let item of ListFindedCustomer" [ngValue]="item.id">{{item.lastName}} {{item.firstName}}</option>
+        </select>
 			</div>
 		</form>
 
@@ -53,7 +52,7 @@
 			  <li><a class="dropdown-item" routerLink="#">Show</a></li>
 			  <li><a class="dropdown-item" routerLink="#">Add</a></li>
 			</ul>
-		  </li> 
+		  </li>
 		  <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  Repair
@@ -63,7 +62,7 @@
 			  <li><a class="dropdown-item" routerLink="#">Add</a></li>
 			</ul>
 		  </li>
-		  
+
 		  <li class="nav-item dropdown">
 			<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 			  Dlc
@@ -73,7 +72,7 @@
 			  <li><a class="dropdown-item" routerLink="#">Add</a></li>
 			</ul>
 		  </li>
-<!-- 
+<!--
 		  <li class="nav-item">
 			<a class="nav-link disabled" aria-disabled="true">Admin</a>
 		  </li> -->

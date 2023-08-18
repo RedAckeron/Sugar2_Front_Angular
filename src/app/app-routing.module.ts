@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-
 import { ShowCustomerComponent } from './components/customer/show-customer/show-customer.component';
 import { AddCustomerComponent } from './components/customer/add-customer/add-customer.component';
 import { AddCommandComponent } from './components/command/add-command/add-command.component';
@@ -8,12 +7,14 @@ import { ShowCommandComponent } from './components/command/show-command/show-com
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { Customer } from './Models/customer';
 import { LoginComponent } from './components/user/login/login.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
+import { LobbyComponent } from './components/Admin/lobby/lobby.component';
 
 const routes: Routes = [
   {path : '',component : HomeComponent},
+  {path : 'home',component : HomeComponent},
+
   {
     path : 'user',children:
     [
@@ -53,13 +54,7 @@ const routes: Routes = [
   {
     path : 'admin',children:
     [
-      {path : 'add',component : AddCommandComponent},
-      {path : 'show',component : ShowCommandComponent},
-    ]
-  },
-  {path : 'exos',children:
-    [
-      {path : 'add',component : AddCommandComponent},
+      {path : 'lobby',component : LobbyComponent},
       {path : 'show',component : ShowCommandComponent},
     ]
   },
