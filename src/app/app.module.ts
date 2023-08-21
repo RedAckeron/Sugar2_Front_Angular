@@ -1,12 +1,9 @@
-import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { PrimeNGConfig } from 'primeng/api';
-import { Button, ButtonModule } from 'primeng/button';
 
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
@@ -18,12 +15,16 @@ import { ShowCommandComponent } from './components/command/show-command/show-com
 import { LobbyComponent } from './components/Admin/lobby/lobby.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
-import { HomeComponent } from './components/home/home.component';
-import { NotFoundComponent } from './components/not-found/not-found.component';
+import { HomeComponent } from './components/Home/home.component';
+import { NotFoundComponent } from './components/Not-found/not-found.component';
 import { LoginComponent } from './components/user/login/login.component';
+import { Button, ButtonModule } from 'primeng/button';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
-
+ToastModule
 @NgModule({
+  schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     NavbarComponent,
@@ -38,17 +39,17 @@ import { ToastModule } from 'primeng/toast';
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent,
-  ],
+    LoginComponent
+    ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    NgbModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ToastModule,
-    ButtonModule
+    ButtonModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
