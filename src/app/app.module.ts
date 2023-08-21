@@ -22,7 +22,6 @@ import { Button, ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
-ToastModule
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -39,7 +38,8 @@ ToastModule
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+
     ],
   imports: [
     BrowserModule,
@@ -49,7 +49,8 @@ ToastModule
     ReactiveFormsModule,
     HttpClientModule,
     ButtonModule,
-    NgbModule
+    NgbModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]
