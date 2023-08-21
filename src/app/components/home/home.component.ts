@@ -16,7 +16,6 @@ export class HomeComponent  {
   items: MenuItem[] | undefined;
 
   constructor(private messageService: MessageService) {}
-
   show() {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
   }
