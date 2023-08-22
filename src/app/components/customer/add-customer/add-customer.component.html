@@ -2,8 +2,8 @@
 <form class="row g-3 needs-validation" [formGroup]="registerForm" (ngSubmit)="register()">
 
 <!-- Firstname -->
-  <div class="col-md-12">
-    <label for="validationCustom01" class="form-label">First name</label>
+  <div class="col-md-6">
+    <label for="FirstName" class="form-label">First name : </label>
     <input id="FirstName" type="text" formControlName="FirstName">
     <div class="txt-error">
       <span *ngIf="registerForm.get('FirstName')?.touched && registerForm.get('FirstName')?.errors?.['required']" class="txt-error">Le champs est requis</span>
@@ -11,8 +11,8 @@
   </div>  </div>
 
   <!-- LastName -->
-  <div class="col-md-12">
-    <label for="validationCustom02" class="form-label">Last name</label>
+  <div class="col-md-6">
+    <label for="LastName" class="form-label">Last name : </label>
     <input id="LastName" type="text" formControlName="LastName">
     <div class="txt-error">
       <span *ngIf="registerForm.get('LastName')?.touched && registerForm.get('LastName')?.errors?.['required']" class="txt-error">Le champs est requis</span>
@@ -20,32 +20,32 @@
   </div>  </div>
 
 <!-- Email -->
-  <div class="col-md-12">
-    <label for="validationCustom02" class="form-label">Email</label>
-      <input id="Email" type="Email" formControlName="Email">
+  <div class="col-md-4">
+    <label for="Email" class="form-label">Email : </label>
+      <input id="Email" size="30" type="Email" formControlName="Email">
       <div class="txt-error">
-        <span *ngIf="registerForm.get('Email')?.touched && registerForm.get('Email')?.errors?.['required']" class="txt-error">Le champs est requis</span>
-        <span *ngIf="registerForm.get('Email')?.errors?.['Email']" class="txt-error">Votre email est invalide</span>
+        <span *ngIf="registerForm.get('Email')?.touched && registerForm.get('Email')?.errors?.['required']" >Le champs est requis</span>
+        <span *ngIf="registerForm.get('Email')?.errors?.['Email']">Votre email est invalide</span>
     </div>
   </div>
 
 <!-- Call1 -->
-<div class="col-md-12">
-  <label for="validationCustom02" class="form-label">Call1</label>
+<div class="col-md-3">
+  <label for="Call1" class="form-label">Call1 : </label>
   <input id="Call1" type="text" formControlName="Call1">
   <div class="txt-error">
-    <span *ngIf="registerForm.get('Call1')?.touched && registerForm.get('Call1')?.errors?.['required']" class="txt-error"><br>Le champs est requis</span>
-    <span *ngIf="registerForm.get('Call1')?.errors?.['minlength'] || registerForm.get('Call1')?.errors?.['maxlength']" class="txt-error">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
+    <span *ngIf="registerForm.get('Call1')?.touched && registerForm.get('Call1')?.errors?.['required']">Le champs est requis</span>
+    <span *ngIf="registerForm.get('Call1')?.errors?.['minlength'] || registerForm.get('Call1')?.errors?.['maxlength']">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
   </div>
 </div>
 
 <!-- Call2 -->
-<div class="col-md-12">
-  <label for="validationCustom02" class="form-label">Call2</label>
+<div class="col-md-3">
+  <label for="Call2" class="form-label">Call2 : </label>
   <input id="Call2" type="text" formControlName="Call2">
   <div class="txt-error">
-    <span *ngIf="registerForm.get('Call2')?.touched && registerForm.get('Call2')?.errors?.['required']" class="txt-error">Le champs est requis</span>
-    <span *ngIf="registerForm.get('Call2')?.errors?.['minlength'] || registerForm.get('Call2')?.errors?.['maxlength']" class="txt-error">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
+    <span *ngIf="registerForm.get('Call2')?.touched && registerForm.get('Call2')?.errors?.['required']">Le champs est requis</span>
+    <span *ngIf="registerForm.get('Call2')?.errors?.['minlength'] || registerForm.get('Call2')?.errors?.['maxlength']">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
   </div>
 </div>
 
@@ -57,3 +57,4 @@
 
 
 
+<p>{{idcust}}</p>

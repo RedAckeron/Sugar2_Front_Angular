@@ -12,8 +12,8 @@ export class ListCustomerComponent implements OnInit {
   Customers!:Customer[];
   constructor(private _customerService:CustomerService){}
 
-ngOnInit(): void 
+ngOnInit(): void
   {
-  this._customerService.ReadLastCustomers("j").subscribe((data)=>this.Customers=data);
+  this._customerService.ReadLastCustomers().subscribe((data)=>this.Customers=data);
   }
 }

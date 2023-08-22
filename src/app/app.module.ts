@@ -38,8 +38,7 @@ import { ToastModule } from 'primeng/toast';
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent,
-
+    LoginComponent
     ],
   imports: [
     BrowserModule,

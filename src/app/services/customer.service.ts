@@ -12,7 +12,7 @@ export class CustomerService
 
   CreateCustomer(Cust:Customer):any
   {
-    console.log("Create customer : "+JSON.stringify(Cust));
+    //console.log("Create customer : "+JSON.stringify(Cust));
     return this._httpClient.post<Customer>(this._url + "Create", Cust);
   }
 
@@ -26,8 +26,8 @@ export class CustomerService
       return this._httpClient.get<Customer[]>(this._url + "findCustomer/" + CustName);
     }
 // A modifier
-  ReadLastCustomers(CustName:string):Observable<Customer[]>
+  ReadLastCustomers():Observable<Customer[]>
     {
-      return this._httpClient.get<Customer[]>(this._url + "findCustomer/" + CustName);
+      return this._httpClient.get<Customer[]>(this._url + "ReadLastCustomer");
     }
   }
