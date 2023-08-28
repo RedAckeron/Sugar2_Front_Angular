@@ -19,9 +19,9 @@ export class AddCustomerComponent {
     this.registerForm = this._builder.group({
       FirstName : [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
       LastName : [null, [Validators.required, Validators.minLength(2), Validators.maxLength(100)]],
-      Email : [null, [Validators.required, Validators.email]],
-      Call1 : [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
-      Call2 : [null, [Validators.required, Validators.minLength(2), Validators.maxLength(20)]],
+      Email : [null, [Validators.email]],
+      Call1 : [null, [Validators.minLength(2), Validators.maxLength(20)]],
+      Call2 : [null, [Validators.minLength(2), Validators.maxLength(20)]],
       })
    }
 
@@ -46,7 +46,7 @@ export class AddCustomerComponent {
         this.registerForm.value.Call1,
         this.registerForm.value.Call2,
         new Date(),
-        1,
+        parseInt(localStorage.getItem("IdUser")as string),
         custAdr);
         //on insert l utilisateur et on remonte vers le front l id qui a ete generrer
         this._customerService.CreateCustomer(cust).subscribe(

@@ -11,9 +11,9 @@ export class CmdComponent implements OnInit {
 
   @Input() Idcustomer!:number;
   ListCmd : CmdLight[]=[];
-  
+
   constructor(private _cmdService:CmdService){}
-  ngOnInit(): void 
+  ngOnInit(): void
   {
     //console.log("IDCUST : "+this.Idcustomer);
     this._cmdService.ReadAllCmdLight(this.Idcustomer).subscribe(

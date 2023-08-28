@@ -5,15 +5,17 @@ import { Customer } from 'src/app/Models/customer';
 import { CustomerAddress } from 'src/app/Models/customerAddress';
 import { CustomerService } from 'src/app/Services/customer.service';
 import { AddressService } from 'src/app/Services/address.service';
+import { CustomerSummary } from 'src/app/models/customerSummary';
 
 @Component({
   selector: 'app-show-customer',
   templateUrl: './show-customer.component.html',
   styleUrls: ['./show-customer.component.scss']
 })
-export class ShowCustomerComponent implements OnInit 
+export class ShowCustomerComponent implements OnInit
   {
   CurrentCustomer!:Customer;
+  CustomerSummary!:CustomerSummary;
   address!:Array<CustomerAddress>;
   IdCust!:number;//a remplacer par un parametre
 
@@ -22,9 +24,11 @@ export class ShowCustomerComponent implements OnInit
     if(_active_router.snapshot.params['id']!=null)
       {
         this.IdCust=_active_router.snapshot.params['id'];
+        localStorage.setItem('CurrentCustomer',this.IdCust.toString());
+
         //console.log("Id Customer : "+_active_router.snapshot.params['id']);
       }
-    else 
+    else
       {
         _router.navigate(['customer/list']);
       }
@@ -33,11 +37,14 @@ ngOnInit(): void
   {
 forkJoin([
     this._customerService.ReadCustomer(this.IdCust),
-    this._addressService.ReadAllCustomerAddress(this.IdCust)
-]).subscribe(([cust,custadr])=>
+    this._customerService.ReadCustomerSummary(this.IdCust),
+    //this._addressService.ReadAllCustomerAddress(this.IdCust)
+]).subscribe(([cust,custSummary])=>
   {
   this.CurrentCustomer=cust;//customer
-  this.address=custadr;
+  this.CustomerSummary=custSummary;
+  //console.table(this.CustomerSummary);
+  //this.address=custadr;
   //console.log(this.CurrentCustomer);
   //this.CurrentCustomer.addresses=custAdr;
  });

@@ -1,5 +1,6 @@
 import { CustomerAddress } from "./customerAddress";
 
+CustomerAddress
 export class Customer{
 
     id:number;

@@ -9,9 +9,14 @@ import {  MessageService } from 'primeng/api';
   providers: [MessageService]
 })
 
-export class HomeComponent {
+export class HomeComponent implements OnInit{
   constructor(private messageService: MessageService) {}
   show() {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
+  }
+  ngOnInit(): void {
+    localStorage.setItem('IdUser','1');
+    localStorage.setItem('CurrentCustomer','1');
+
   }
 }

@@ -10,7 +10,7 @@
 <!-- Quand les données sont charger on affiche l accordeon -->
 <div *ngIf="CurrentCustomer">
 <div class="accordion" id="accordionExample">
-  
+
     <div class="accordion-item">
       <h2 class="accordion-header">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#InfoClient" aria-expanded="true" aria-controls="InfoClient">
@@ -23,7 +23,7 @@
         </div>
       </div>
     </div>
-    
+
 <!-- Données client-->
 <div class="accordion-item">
   <h2 class="accordion-header">
@@ -33,24 +33,26 @@
   </h2>
   <div id="data" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
     <div class="accordion-body">
-      <strong>This is the second item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
+      <app-coord [IdCustomer]="this.IdCust"></app-coord>
+
     </div>
   </div>
 </div>
 
+
 <!-- Address 1 -->
 <div class="accordion-item" *ngIf="CurrentCustomer.adresses[0]!=null">
   <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Adr0" aria-expanded="false" aria-controls="Adr0">
-          Addresse {{CurrentCustomer.adresses[0].adrInfo}}
-        </button>
-      </h2>
-      <div id="Adr0" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
+    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Adr0" aria-expanded="false" aria-controls="Adr0">
+      Addresse {{CurrentCustomer.adresses[0].adrInfo}}
+    </button>
+  </h2>
+  <div id="Adr0" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
+    <div class="accordion-body">
+      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
     </div>
+  </div>
+</div>
 
 <!-- Addresse 2 -->
 <div class="accordion-item" *ngIf="CurrentCustomer.adresses[1]!=null">
@@ -81,7 +83,7 @@
     </div>
 
     <!-- odp -->
-      <div class="accordion-item">
+      <div class="accordion-item" *ngIf="CustomerSummary.qtOdp">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Odp" aria-expanded="false" aria-controls="Odp">
             Offre de prix
@@ -95,7 +97,7 @@
       </div>
 
       <!-- commandes -->
-      <div class="accordion-item">
+      <div class="accordion-item" *ngIf="CustomerSummary.qtCmd">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Cmd" aria-expanded="false" aria-controls="Cmd">
             Bon de commande
@@ -106,10 +108,10 @@
             <app-cmd [Idcustomer]="this.IdCust"></app-cmd>
           </div>
         </div>
-      </div> 
+      </div>
 
       <!-- fact -->
-      <div class="accordion-item">
+      <div class="accordion-item" *ngIf="CustomerSummary.qtFct">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
             Facture
@@ -123,7 +125,7 @@
       </div>
 
       <!-- repair -->
-      <div class="accordion-item">
+      <div class="accordion-item" *ngIf="CustomerSummary.qtRpr">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Repair" aria-expanded="false" aria-controls="Repair">
             Repair
@@ -137,7 +139,7 @@
       </div>
 
       <!-- dlc -->
-      <div class="accordion-item">
+      <div class="accordion-item" *ngIf="CustomerSummary.qtDlc">
         <h2 class="accordion-header">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Dlc" aria-expanded="false" aria-controls="Dlc">
             Download Content

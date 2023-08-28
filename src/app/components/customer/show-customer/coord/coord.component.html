@@ -1,0 +1,60 @@
+
+<div class="card">
+  <p-toast></p-toast>
+</div>
+<div class="chapterTitle"><strong>Formulaire inscription client</strong></div>
+<form *ngIf="this.customer" class="row g-3 needs-validation" [formGroup]="registerForm" (ngSubmit)="update()">
+
+<!-- Firstname -->
+  <div class="col-md-6">
+    <label for="FirstName" class="form-label">First name : </label>
+    <input id="FirstName" type="text" formControlName="FirstName">
+    <div class="txt-error">
+      <span *ngIf="registerForm.get('FirstName')?.touched && registerForm.get('FirstName')?.errors?.['required']" class="txt-error">Le champs est requis</span>
+    <span *ngIf="registerForm.get('FirstName')?.errors?.['minlength'] || registerForm.get('FirstName')?.errors?.['maxlength']" class="txt-error">Votre prénom doit faire minimum 2 caractères et maximum 100 caractères</span>
+  </div>  </div>
+
+  <!-- LastName -->
+  <div class="col-md-6">
+    <label for="LastName" class="form-label">Last name : </label>
+    <input id="LastName" type="text" formControlName="LastName">
+    <div class="txt-error">
+      <span *ngIf="registerForm.get('LastName')?.touched && registerForm.get('LastName')?.errors?.['required']" class="txt-error">Le champs est requis</span>
+    <span *ngIf="registerForm.get('LastName')?.errors?.['minlength'] || registerForm.get('LastName')?.errors?.['maxlength']" class="txt-error">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
+  </div>  </div>
+
+<!-- Email -->
+  <div class="col-md-4">
+    <label for="Email" class="form-label">Email : </label>
+      <input id="Email" size="30" type="Email" formControlName="Email">
+      <div class="txt-error">
+        <span *ngIf="registerForm.get('Email')?.touched && registerForm.get('Email')?.errors?.['required']" >Le champs est requis</span>
+        <span *ngIf="registerForm.get('Email')?.errors?.['Email']">Votre email est invalide</span>
+    </div>
+  </div>
+
+<!-- Call1 -->
+<div class="col-md-3">
+  <label for="Call1" class="form-label">Call1 : </label>
+  <input id="Call1" type="text" formControlName="Call1">
+  <div class="txt-error">
+    <span *ngIf="registerForm.get('Call1')?.touched && registerForm.get('Call1')?.errors?.['required']">Le champs est requis</span>
+    <span *ngIf="registerForm.get('Call1')?.errors?.['minlength'] || registerForm.get('Call1')?.errors?.['maxlength']">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
+  </div>
+</div>
+
+<!-- Call2 -->
+<div class="col-md-3">
+  <label for="Call2" class="form-label">Call2 : </label>
+  <input id="Call2" type="text" formControlName="Call2">
+  <div class="txt-error">
+    <span *ngIf="registerForm.get('Call2')?.touched && registerForm.get('Call2')?.errors?.['required']">Le champs est requis</span>
+    <span *ngIf="registerForm.get('Call2')?.errors?.['minlength'] || registerForm.get('Call2')?.errors?.['maxlength']">Votre nom doit faire minimum 2 caractères et maximum 100 caractères</span>
+  </div>
+</div>
+
+<!-- submit -->
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Update</button>
+  </div>
+</form>

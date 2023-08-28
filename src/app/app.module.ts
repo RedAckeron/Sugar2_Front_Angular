@@ -31,6 +31,7 @@ import { SummaryComponent } from './components/customer/show-customer/summary/su
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
+import { CoordComponent } from './components/customer/show-customer/coord/coord.component';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -54,7 +55,8 @@ import { TagModule } from 'primeng/tag';
     RprComponent,
     DlcComponent,
     CmdComponent,
-    SummaryComponent
+    SummaryComponent,
+    CoordComponent
     ],
   imports: [
     BrowserModule,

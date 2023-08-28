@@ -21,7 +21,7 @@ AddAdr()
 
 AddOdp()
   {
-    
+
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Offre de prix ajouté' });
   }
 AddCmd()
