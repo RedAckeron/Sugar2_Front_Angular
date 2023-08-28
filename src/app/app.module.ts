@@ -22,6 +22,16 @@ import { Button, ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastModule } from 'primeng/toast';
+import { OdpComponent } from './components/customer/show-customer/odp/odp.component';
+import { FctComponent } from './components/customer/show-customer/fct/fct.component';
+import { RprComponent } from './components/customer/show-customer/rpr/rpr.component';
+import { DlcComponent } from './components/customer/show-customer/dlc/dlc.component';
+import { CmdComponent } from './components/customer/show-customer/cmd/cmd.component';
+import { SummaryComponent } from './components/customer/show-customer/summary/summary.component';
+import { SplitButtonModule } from 'primeng/splitbutton';
+import { TabViewModule } from 'primeng/tabview';
+import { TagModule } from 'primeng/tag';
+
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
@@ -38,7 +48,13 @@ import { ToastModule } from 'primeng/toast';
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent
+    LoginComponent,
+    OdpComponent,
+    FctComponent,
+    RprComponent,
+    DlcComponent,
+    CmdComponent,
+    SummaryComponent
     ],
   imports: [
     BrowserModule,
@@ -49,7 +65,12 @@ import { ToastModule } from 'primeng/toast';
     HttpClientModule,
     ButtonModule,
     NgbModule,
-    ToastModule
+    ToastModule,
+    SplitButtonModule,
+    TabViewModule,
+    TagModule
+    
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

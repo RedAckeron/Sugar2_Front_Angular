@@ -50,17 +50,14 @@ export class AddCustomerComponent {
         custAdr);
         //on insert l utilisateur et on remonte vers le front l id qui a ete generrer
         this._customerService.CreateCustomer(cust).subscribe(
-  {
-  next:(data:number)=>{this.idcust=data},
-  error:{},
-  complete:()=>{this._router.navigate(["customer/show/"+this.idcust])}
-  }
-
+          {
+          next:(data:number)=>{this.idcust=data},
+          error:{},
+          complete:()=>{this._router.navigate(["customer/show/"+this.idcust])}
+          }
           );
 
         //console.log(this.idcust);
-
-
         }
     }
 }

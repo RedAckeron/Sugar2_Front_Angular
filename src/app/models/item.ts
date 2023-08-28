@@ -1,0 +1,22 @@
+export class Item
+    {
+    Id:number;
+    Label:string;
+    Url:string;
+    Qt:number;
+    PrxAchat:number;
+    PrxVente:number;
+    DtIn:Date;
+    AddByUser:number;
+    constructor(Id:number,Label:string,Url:string,Qt:number,PrxAchat:number,Prxvente:number,DtIn:Date,AddByUser:number)
+        {
+            this.Id=Id,
+            this.Label=Label,
+            this.Url=Url,
+            this.Qt=Qt,
+            this.PrxAchat=PrxAchat,
+            this.PrxVente=Prxvente,
+            this.DtIn=DtIn,
+            this.AddByUser=AddByUser
+        }
+    }

@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from '../Models/customer';
+import { Odp } from '../Models/Odp';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,4 +31,10 @@ export class CustomerService
     {
       return this._httpClient.get<Customer[]>(this._url + "ReadLastCustomer");
     }
+
+  AddAdr(IdCust:number){
+    return this._httpClient.get<Customer[]>(this._url + "ReadLastCustomer");
+  }
+
+ 
   }
