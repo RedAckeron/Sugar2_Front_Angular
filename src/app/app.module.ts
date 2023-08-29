@@ -17,7 +17,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 import { HomeComponent } from './components/Home/home.component';
 import { NotFoundComponent } from './components/Not-found/not-found.component';
-import { LoginComponent } from './components/user/login/login.component';
 import { Button, ButtonModule } from 'primeng/button';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,9 +28,12 @@ import { DlcComponent } from './components/customer/show-customer/dlc/dlc.compon
 import { CmdComponent } from './components/customer/show-customer/cmd/cmd.component';
 import { SummaryComponent } from './components/customer/show-customer/summary/summary.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
-import { TabViewModule } from 'primeng/tabview';
+import { TabPanel, TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
 import { CoordComponent } from './components/customer/show-customer/coord/coord.component';
+import {AccordionModule} from 'primeng/accordion';
+import {MenubarModule} from 'primeng/menubar';
+import {MenuItem} from 'primeng/api';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -49,14 +51,13 @@ import { CoordComponent } from './components/customer/show-customer/coord/coord.
     ListCustomerComponent,
     HomeComponent,
     NotFoundComponent,
-    LoginComponent,
     OdpComponent,
     FctComponent,
     RprComponent,
     DlcComponent,
     CmdComponent,
     SummaryComponent,
-    CoordComponent
+    CoordComponent,
     ],
   imports: [
     BrowserModule,
@@ -70,9 +71,10 @@ import { CoordComponent } from './components/customer/show-customer/coord/coord.
     ToastModule,
     SplitButtonModule,
     TabViewModule,
-    TagModule
-    
-    
+    TagModule,
+    AccordionModule,
+    MenubarModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,7 +7,9 @@
         Durée : 6 mois
     </h4>
 </div>
-<div class="card">
-  <p-toast></p-toast>
-  <button type="button" pButton pRipple (click)="show()" label="Show" class="p-button-success"></button>
+<div *ngIf="IdUser!=''">
+  <div><input type="text" [(ngModel)]="email"></div>
+  <div><input type="password" [(ngModel)]="password"></div>
+  <div><button (click)="login()">Login</button></div>
 </div>
+

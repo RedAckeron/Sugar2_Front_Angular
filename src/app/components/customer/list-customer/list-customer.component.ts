@@ -10,6 +10,7 @@ import { CustomerService } from 'src/app/Services/customer.service';
 
 export class ListCustomerComponent implements OnInit {
   Customers!:Customer[];
+
   constructor(private _customerService:CustomerService){}
 
 ngOnInit(): void

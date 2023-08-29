@@ -6,7 +6,6 @@ import { AddCommandComponent } from './components/command/add-command/add-comman
 import { ShowCommandComponent } from './components/command/show-command/show-command.component';
 import { ListCustomerComponent } from './components/customer/list-customer/list-customer.component';
 import { NotFoundComponent } from './components/Not-found/not-found.component';
-import { LoginComponent } from './components/user/login/login.component';
 import { ProfilComponent } from './components/user/profil/profil.component';
 import { LobbyComponent } from './components/Admin/lobby/lobby.component';
 import { HomeComponent } from './components/Home/home.component';
@@ -19,7 +18,6 @@ const routes: Routes = [
   {
     path : 'user',children:
     [
-    {path : 'login',component : LoginComponent},
     {path : 'profil',component : ProfilComponent},
     ]
   },

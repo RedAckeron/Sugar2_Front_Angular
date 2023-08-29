@@ -65,7 +65,6 @@ ngOnInit(): void {
         this.customer.dtIn,
         1,
         custAdr);
-
         console.table(cust);
 
         //on insert l utilisateur et on remonte vers le front l id qui a ete generrer

@@ -1,7 +1,8 @@
 <div class="container">
   <app-navbar></app-navbar>
     <div class="content">
-      <router-outlet></router-outlet>
+      <router-outlet *ngIf="IdUser"></router-outlet>
+      <app-home *ngIf="!IdUser"></app-home>
     </div>
   <app-footer></app-footer>
 </div>

@@ -16,6 +16,7 @@ export class SummaryComponent {
 
 AddAdr()
   {
+
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Adresse ajouté' });
   }
 

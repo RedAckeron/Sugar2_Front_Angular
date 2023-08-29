@@ -7,148 +7,61 @@
   </button>
 </div>
 
+
+
+
 <!-- Quand les données sont charger on affiche l accordeon -->
 <div *ngIf="CurrentCustomer">
-<div class="accordion" id="accordionExample">
+  <p-accordion>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#InfoClient" aria-expanded="true" aria-controls="InfoClient">
-          Profil Client : <strong> {{CurrentCustomer.firstName}} {{CurrentCustomer.lastName}}</strong>
-        </button>
-      </h2>
-      <div id="InfoClient" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
-        <div class="accordion-body" style="padding:0;margin:0;">
-          <app-summary></app-summary>
-        </div>
-      </div>
-    </div>
+<!-- Profil Client -->
+    <p-accordionTab header="Profil Client :  {{CurrentCustomer.firstName}} {{CurrentCustomer.lastName}}"[selected]="true">
+      <app-summary></app-summary>
+    </p-accordionTab>
 
-<!-- Données client-->
-<div class="accordion-item">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#data" aria-expanded="false" aria-controls="data">
-      Coordonées client
-    </button>
-  </h2>
-  <div id="data" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
+<!-- Coordonées client -->
+    <p-accordionTab header="Coordonées client">
       <app-coord [IdCustomer]="this.IdCust"></app-coord>
+    </p-accordionTab>
 
-    </div>
-  </div>
-</div>
+    <!-- Adresse 1 -->
+    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[0].adrInfo}}" *ngIf="CustomerSummary.qtAdr>0">
+    Adresse 1
+    </p-accordionTab>
 
+    <!-- Adresse 2 -->
+    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[1].adrInfo}}" *ngIf="CustomerSummary.qtAdr>1">
+      Adresse 2
+    </p-accordionTab>
 
-<!-- Address 1 -->
-<div class="accordion-item" *ngIf="CurrentCustomer.adresses[0]!=null">
-  <h2 class="accordion-header">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Adr0" aria-expanded="false" aria-controls="Adr0">
-      Addresse {{CurrentCustomer.adresses[0].adrInfo}}
-    </button>
-  </h2>
-  <div id="Adr0" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-    <div class="accordion-body">
-      <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-    </div>
-  </div>
-</div>
+    <!-- Adresse 3 -->
+    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[2].adrInfo}}" *ngIf="CustomerSummary.qtAdr>2">
+       Adresse 3
+    </p-accordionTab>
 
-<!-- Addresse 2 -->
-<div class="accordion-item" *ngIf="CurrentCustomer.adresses[1]!=null">
-  <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Adr1" aria-expanded="false" aria-controls="Adr1">
-          Addresse
-        </button>
-      </h2>
-      <div id="Adr1" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
+    <!-- Odp -->
+    <p-accordionTab header="Offre de prix ({{CustomerSummary.qtOdp}})" *ngIf="CustomerSummary.qtOdp">
+      <app-odp [Idcustomer]="this.IdCust"></app-odp>
+    </p-accordionTab>
 
-<!-- Addresse 3 -->
-    <div class="accordion-item" *ngIf="CurrentCustomer.adresses[2]!=null">
-      <h2 class="accordion-header">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Adr2" aria-expanded="false" aria-controls="Adr2">
-          Addresse
-        </button>
-      </h2>
-      <div id="Adr2" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-        </div>
-      </div>
-    </div>
+    <!-- Cmd -->
+    <p-accordionTab header="Bon de commande ({{CustomerSummary.qtCmd}})" *ngIf="CustomerSummary.qtOdp">
+      <app-cmd [Idcustomer]="this.IdCust"></app-cmd>
+    </p-accordionTab>
 
-    <!-- odp -->
-      <div class="accordion-item" *ngIf="CustomerSummary.qtOdp">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Odp" aria-expanded="false" aria-controls="Odp">
-            Offre de prix
-          </button>
-        </h2>
-        <div id="Odp" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <app-odp [Idcustomer]="this.IdCust"></app-odp>
-          </div>
-        </div>
-      </div>
+    <!-- Fct -->
+    <p-accordionTab header="facture ({{CustomerSummary.qtFct}})" *ngIf="CustomerSummary.qtOdp">
+      <app-fct [Idcustomer]="this.IdCust"></app-fct>
+    </p-accordionTab>
 
-      <!-- commandes -->
-      <div class="accordion-item" *ngIf="CustomerSummary.qtCmd">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Cmd" aria-expanded="false" aria-controls="Cmd">
-            Bon de commande
-          </button>
-        </h2>
-        <div id="Cmd" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <app-cmd [Idcustomer]="this.IdCust"></app-cmd>
-          </div>
-        </div>
-      </div>
+    <!-- Rpr -->
+    <p-accordionTab header="Réparration ({{CustomerSummary.qtRpr}})" *ngIf="CustomerSummary.qtOdp">
+      <app-odp [Idcustomer]="this.IdCust"></app-odp>
+    </p-accordionTab>
 
-      <!-- fact -->
-      <div class="accordion-item" *ngIf="CustomerSummary.qtFct">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            Facture
-          </button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <app-fct [Idcustomer]="this.IdCust"></app-fct>
-          </div>
-        </div>
-      </div>
+    <!-- Dlc -->
+    <p-accordionTab header="Download Content ({{CustomerSummary.qtDlc}})" *ngIf="CustomerSummary.qtOdp">
+      <app-odp [Idcustomer]="this.IdCust"></app-odp>
+    </p-accordionTab>
 
-      <!-- repair -->
-      <div class="accordion-item" *ngIf="CustomerSummary.qtRpr">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Repair" aria-expanded="false" aria-controls="Repair">
-            Repair
-          </button>
-        </h2>
-        <div id="Repair" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-
-      <!-- dlc -->
-      <div class="accordion-item" *ngIf="CustomerSummary.qtDlc">
-        <h2 class="accordion-header">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#Dlc" aria-expanded="false" aria-controls="Dlc">
-            Download Content
-          </button>
-        </h2>
-        <div id="Dlc" class="accordion-collapse collapse" data-bs-parent="#accordionExample">
-          <div class="accordion-body">
-            <strong>This is the third item's accordion body.</strong> It is hidden by default, until the collapse plugin adds the appropriate classes that we use to style each element. These classes control the overall appearance, as well as the showing and hiding via CSS transitions. You can modify any of this with custom CSS or overriding our default variables. It's also worth noting that just about any HTML can go within the <code>.accordion-body</code>, though the transition does limit overflow.
-          </div>
-        </div>
-      </div>
-  </div>
+  </p-accordion>
