@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from './Services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -6,8 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  IdUser!:string|null;
-  title = 'Sugar2_Angular';
-  ngOnInit(): void {
+  private _isConnected! : Boolean;
+
+  get isConnected()
+  {
+    return this._isConnected;
   }
-}
+
+   constructor(private _authService:AuthService){
+
+   }
+
+  IdUser:string|null =localStorage.getItem('IdUser');
+  
+  
+  
+  
+  ngOnInit(): void {
+    this._authService.IsConnected.subscribe({
+      next: (value : Boolean) => 
+      {
+        console.log("new value : " + value)
+        this._isConnected=value
+      }});
+  }
+  }

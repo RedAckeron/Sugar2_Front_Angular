@@ -1,13 +1,20 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Customer } from '../Models/customer';
-import { CustomerSummary } from '../models/customerSummary';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Customer } from '../Models/Customer';
+import { CustomerSummary } from '../Models/CustomerSummary';
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService
   {
+    private _currentCustomer : BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+    get CurrentCustomer() : BehaviorSubject<number>
+    {
+      return this._currentCustomer;
+    }
+
   private _url: string = "https://localhost:7266/Customer/";
   constructor(private _httpClient: HttpClient) {}
 

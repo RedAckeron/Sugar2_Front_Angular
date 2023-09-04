@@ -11,8 +11,8 @@ export class OdpService
     private _url: string = "https://localhost:7266/Odp/";
     constructor(private _httpClient: HttpClient) {}
    
-    AddOdp(odp:Odp )
+    AddOdp(IdCust:Number):Observable<Number>
         {
-          return this._httpClient.post<Odp>(this._url + "Create",odp);
+          return this._httpClient.post<Number>(this._url + "Create",IdCust);
         }
     }

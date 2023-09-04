@@ -8,5 +8,4 @@ export class CmdLight
      this.id=Id;
      this.dtIn=dtIn;
      }
-
 }

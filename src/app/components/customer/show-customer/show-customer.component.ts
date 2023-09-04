@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { forkJoin } from 'rxjs';
-import { Customer } from 'src/app/Models/customer';
+import { Customer } from 'src/app/Models/Customer';
 import { CustomerAddress } from 'src/app/Models/customerAddress';
 import { CustomerService } from 'src/app/Services/customer.service';
 import { AddressService } from 'src/app/Services/address.service';
-import { CustomerSummary } from 'src/app/models/customerSummary';
+import { CustomerSummary } from 'src/app/Models/CustomerSummary';
 
 @Component({
   selector: 'app-show-customer',

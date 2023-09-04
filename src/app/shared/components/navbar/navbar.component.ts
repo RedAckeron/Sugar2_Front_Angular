@@ -3,7 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { MenuItem, PrimeIcons } from 'primeng/api';
-import { Customer } from 'src/app/Models/customer';
+import { Customer } from 'src/app/Models/Customer';
+import { AuthService } from 'src/app/Services/auth.service';
 import { CustomerService } from 'src/app/Services/customer.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { CustomerService } from 'src/app/Services/customer.service';
 export class NavbarComponent implements OnInit{
   FindCustomerForm : FormGroup;
   items!: MenuItem[];
-  constructor(private _builder : FormBuilder,private _customerService:CustomerService,private _router : Router)
+  constructor(private _builder : FormBuilder,private _customerService:CustomerService,private _router : Router,private _authService:AuthService)
   {
     //On crée un nouveau formulaire grâce à notre FormBuilder et on le stocke dans notre propriété registerForm
     this.FindCustomerForm = this._builder.group({
@@ -36,11 +37,7 @@ export class NavbarComponent implements OnInit{
   dtIn: new Date,
   addByUser:0,
   adresses:[]
-
   };
-
-
-
 
 GetListCustomer()
   {
@@ -73,8 +70,8 @@ GetListCustomer()
 
 logout()
   {
-    localStorage.removeItem("IdUser");
-    this._router.navigate(["/home"]);
+    this._authService.logout();
+    
   }
 
   ngOnInit() {

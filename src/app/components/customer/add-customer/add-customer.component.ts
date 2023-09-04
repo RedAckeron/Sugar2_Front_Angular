@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, Validators, ValidatorFn } from '@angular/forms';
 import { ActivatedRoute, Router, RouterLink, RouterLinkActive } from '@angular/router';
-import { Customer } from 'src/app/Models/customer';
+import { Customer } from 'src/app/Models/Customer';
 import { CustomerAddress } from 'src/app/Models/customerAddress';
 import { CustomerService } from 'src/app/Services/customer.service';
 import { Kp_EmailValidator } from 'src/app/Validators/EmailValidator';

@@ -1,7 +1,10 @@
 <div class="footerbox">
-    <div class="footerboxname">Created by RedLife</div>
+    <div class="footerboxname">
 
-    <div class="footeridUser" *ngIf="IdUser!=null">Connected</div>
-    <div class="footeridUser" *ngIf="IdUser==null">Not Connected</div>
+        <div class="connected" *ngIf="isConnected"></div>
+        <div class="disconnected" *ngIf="!isConnected"></div>
+        Created by RedLife
+    </div>
+   
     <div class="footerboxanno">KeyProd 2023</div>
 </div>

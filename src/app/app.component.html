@@ -1,8 +1,9 @@
 <div class="container">
   <app-navbar></app-navbar>
     <div class="content">
-      <router-outlet *ngIf="IdUser"></router-outlet>
-      <app-home *ngIf="!IdUser"></app-home>
+      <router-outlet *ngIf="isConnected"></router-outlet>
+      <app-login *ngIf="!isConnected"></app-login>
     </div>
   <app-footer></app-footer>
 </div>
+

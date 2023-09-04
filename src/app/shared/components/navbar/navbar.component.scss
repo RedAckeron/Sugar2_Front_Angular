@@ -5,3 +5,16 @@ select
 {
     height: 35px;
 }
+
+.connected{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color:green;
+}
+.disconnected{
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color:red;
+}

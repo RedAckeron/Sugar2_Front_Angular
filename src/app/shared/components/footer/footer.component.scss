@@ -8,6 +8,7 @@ background-color:#CFE2FF;
 
 .footerboxname
 {
+    display: flex;
     flex :auto;
 }
 
@@ -22,3 +23,17 @@ background-color:#CFE2FF;
 
     text-align: right;
 }
+
+.connected{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color:green;
+  }
+  .disconnected{
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color:red;
+  }
+  

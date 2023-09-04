@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {  MessageService } from 'primeng/api';
-import { User } from 'src/app/models/User';
-import { AuthService } from 'src/app/services/auth.service';
+import { interval } from 'rxjs';
+import { User } from 'src/app/Models/User';
+import { AuthService } from 'src/app/Services/auth.service';
 
 
 @Component({
@@ -12,38 +13,32 @@ import { AuthService } from 'src/app/services/auth.service';
   providers: [MessageService]
 })
 
-export class HomeComponent {
-IdUser!:string;
+export class HomeComponent implements OnInit{
+  private _isConnected! : Boolean;
+
+  get isConnected()
+  {
+    return this._isConnected;
+  }
+IdUser?:string;
 email!:string;
 password!:string;
 user!:User;
-  constructor(private messageService: MessageService,private _authService:AuthService,private _router:Router) {}
+
+  constructor(private messageService: MessageService,private _authService:AuthService) {}
   show() {
       this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
     }
 
-  login()
-  {
-    this._authService.login(this.email,this.password).subscribe(
-      {
-        next:(data:User)=>{this.user=data;localStorage.setItem('IdUser',String(this.user.id));this._authService.IsConnected=true;},
-        complete:()=>
-        {
-
-        }
-      })
-
-
-
-
-  // if(this.username=='admin'&& this.password=='admin')
-  // {
-  //   console.log("logged");
-  //   localStorage.setItem('IdUser','1');
-  //   this.idUser=localStorage.getItem("IdUser");
-  // }
-  }
-
+ngOnInit(): void {
+this._authService.IsConnected.subscribe({
+  next:(value)=>
+    {
+      console.log("connected ? : "+value)
+      this._isConnected=value
+    }});
+    }
+  
 }
 
 

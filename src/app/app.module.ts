@@ -34,6 +34,7 @@ import { CoordComponent } from './components/customer/show-customer/coord/coord.
 import {AccordionModule} from 'primeng/accordion';
 import {MenubarModule} from 'primeng/menubar';
 import {MenuItem} from 'primeng/api';
+import { LoginComponent } from './components/Auth/login/login.component';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -58,6 +59,7 @@ import {MenuItem} from 'primeng/api';
     CmdComponent,
     SummaryComponent,
     CoordComponent,
+    LoginComponent,
     ],
   imports: [
     BrowserModule,
