@@ -35,11 +35,10 @@ export class LoginComponent implements OnInit {
     this.userForm = new UserFormLogin()
       this.userForm.Email = this.loginUser.value['Email']
       this.userForm.Password = this.loginUser.value['Password']
-    
+
     this._authService.login(this.userForm).subscribe({
       next : (data) => {
         if (data) {
-          console.log("auth service : login");
           console.table(data);
           this._tokenService.saveToken(data.id.toString())
           //this._tokenService.saveRefreshToken(data.refreshToken)
@@ -53,6 +52,6 @@ export class LoginComponent implements OnInit {
         this._router.navigate(['home'])
       }
     })
-    
+
   }
 }

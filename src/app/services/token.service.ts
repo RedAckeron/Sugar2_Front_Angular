@@ -5,10 +5,10 @@ import { Injectable } from '@angular/core';
 })
 export class TokenService {
 
-  constructor() { }
+  constructor() {}
 
   public saveToken(token : string): void {
-    sessionStorage.setItem('currentUser', (token))
+    sessionStorage.setItem('IdUser', (token))
   }
 
   public saveRefreshToken(refreshToken : string): void {
@@ -16,7 +16,8 @@ export class TokenService {
   }
 
   public getToken(): string|null {
-   return sessionStorage.getItem('token');
+
+   return sessionStorage.getItem('IdUser');
     }
 
   public getRefreshToken(): string|null {

@@ -18,15 +18,14 @@ export class AuthService {
     return this._isConnected;
   }
 
-
   private _UserSubject : BehaviorSubject<User|null>
   public user!:Observable<User|null>;
   public headers = new HttpHeaders().set('Content-Type', 'application/json')
-  constructor(private _httpClient: HttpClient,private _tokenService:TokenService) 
+  constructor(private _httpClient: HttpClient,private _tokenService:TokenService)
   {
     let token :string | null =this._tokenService.getToken();
     console.log("TOKEN : "+token);
-    
+
     if(token)
     {
       this._UserSubject = new BehaviorSubject<User|null>(JSON.parse(token))
@@ -37,7 +36,7 @@ export class AuthService {
       this._UserSubject= new BehaviorSubject<User|null>(null)
     }
   }
-  
+
   public get userValue(): User|null {
     return this._UserSubject.value
   }
@@ -46,8 +45,6 @@ export class AuthService {
   SetToken(token : User){
     this._UserSubject.next(token)
   }
-  
-  
 
   login(userform:UserFormLogin):Observable<User>
     {

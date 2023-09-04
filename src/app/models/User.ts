@@ -9,6 +9,7 @@ export class User
     lastName:string;
     dtIn:Date;
     addByUser:number;
+    CurrentCustomer:number=0;
     constructor(Id:number,DtIn:Date,email:string,firstName:string,lastName:string)
     {
     this.id=Id;

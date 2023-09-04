@@ -1,5 +1,5 @@
 <p-menubar [model]="items">
-  <form [formGroup]="FindCustomerForm" class="d-flex" role="search">
+  <form [formGroup]="FindCustomerForm" class="d-flex" role="search" *ngIf="isConnected">
     <input type="text" list="ListCust" formControlName="FormFindCustomer" placeholder="Nom du client" (keyup)="GetListCustomer()">
     <div *ngIf="((ListFindedCustomer!=null)&&(ListFindedCustomer.length>1))">
       <select formControlName="IdUserSelected" id="ListCust" name="cars" (change)="showcustomer()" class="form-select" aria-label="small select example">

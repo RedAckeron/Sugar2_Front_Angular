@@ -26,7 +26,6 @@ import { FctComponent } from './components/customer/show-customer/fct/fct.compon
 import { RprComponent } from './components/customer/show-customer/rpr/rpr.component';
 import { DlcComponent } from './components/customer/show-customer/dlc/dlc.component';
 import { CmdComponent } from './components/customer/show-customer/cmd/cmd.component';
-import { SummaryComponent } from './components/customer/show-customer/summary/summary.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TabPanel, TabViewModule } from 'primeng/tabview';
 import { TagModule } from 'primeng/tag';
@@ -57,7 +56,6 @@ import { LoginComponent } from './components/Auth/login/login.component';
     RprComponent,
     DlcComponent,
     CmdComponent,
-    SummaryComponent,
     CoordComponent,
     LoginComponent,
     ],

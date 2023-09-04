@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CmdLight } from '../Models/cmdLight';
-import { Odp } from '../Models/Odp';
+import { CmdLight } from '../models/Cmd';
+import { Odp, OdpLight } from '../Models/Odp';
+import { TokenService } from './token.service';
 @Injectable({
   providedIn: 'root'
 })
@@ -10,9 +11,14 @@ export class OdpService
     {
     private _url: string = "https://localhost:7266/Odp/";
     constructor(private _httpClient: HttpClient) {}
-   
-    AddOdp(IdCust:Number):Observable<Number>
+
+    AddOdp(IdUser:number,IdCust:Number):Observable<Number>
         {
-          return this._httpClient.post<Number>(this._url + "Create",IdCust);
+          return this._httpClient.post<Number>(this._url + "Create",{AddByUser:IdUser,IdCustomer:IdCust});
+        }
+
+    ReadAllOdpLight(IdCust: number):Observable<OdpLight[]>
+        {
+        return this._httpClient.get<OdpLight[]>(this._url + "ReadAllOdpLight/" + IdCust);
         }
     }

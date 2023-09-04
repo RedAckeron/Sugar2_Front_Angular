@@ -19,16 +19,14 @@ export class AppComponent implements OnInit{
    }
 
   IdUser:string|null =localStorage.getItem('IdUser');
-  
-  
-  
-  
+
+
   ngOnInit(): void {
     this._authService.IsConnected.subscribe({
-      next: (value : Boolean) => 
+      next: (value : Boolean) =>
       {
-        console.log("new value : " + value)
         this._isConnected=value
       }});
+
   }
   }

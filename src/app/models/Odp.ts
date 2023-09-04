@@ -15,4 +15,15 @@ export class Odp
     this.IdCustomer=IdCustomer;
     this.basket=basket
      }
-}
+    }
+export class OdpLight
+     {
+         id:number;
+         dtIn:Date;
+
+         constructor(Id:number,dtIn:Date)
+          {
+          this.id=Id;
+          this.dtIn=dtIn;
+          }
+     }

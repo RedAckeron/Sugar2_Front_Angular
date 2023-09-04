@@ -1,3 +1,9 @@
+
+export class Cmd
+{
+
+
+}
 export class CmdLight
 {
     id:number;

@@ -2,6 +2,7 @@
   <app-navbar></app-navbar>
     <div class="content">
       <router-outlet *ngIf="isConnected"></router-outlet>
+      <app-home *ngIf="!isConnected"></app-home>
       <app-login *ngIf="!isConnected"></app-login>
     </div>
   <app-footer></app-footer>

@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
-import { CmdLight } from 'src/app/Models/cmdLight';
-import { CmdService } from 'src/app/Services/cmd.service';
+import { OdpLight } from 'src/app/Models/Odp';
+import { OdpService } from 'src/app/Services/odp.service';
 
 @Component({
   selector: 'app-odp',
@@ -9,19 +9,21 @@ import { CmdService } from 'src/app/Services/cmd.service';
 })
 export class OdpComponent {
 
-  @Input() Idcustomer!:number;
-  ListCmd : CmdLight[]=[];
+  @Input() IdCustomer!:number;
 
-  constructor(private _cmdService:CmdService){}
+  ListOdp : OdpLight[]=[];
+
+  constructor(private _odpService:OdpService){}
   ngOnInit(): void
   {
     //console.log("IDCUST : "+this.Idcustomer);
-    this._cmdService.ReadAllCmdLight(this.Idcustomer).subscribe(
+    this._odpService.ReadAllOdpLight(this.IdCustomer).subscribe(
       {
-        next:(data:CmdLight[])=>{this.ListCmd=data},
+        next:(data:OdpLight[])=>{this.ListOdp=data;console.log(data);
+        },
         complete:()=>
         {
-          //console.table(this.ListCmd);
+          console.table(this.ListOdp);
         }
       })
   }

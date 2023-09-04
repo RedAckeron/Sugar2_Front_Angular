@@ -13,8 +13,17 @@ import { CustomerService } from 'src/app/Services/customer.service';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit{
+
   FindCustomerForm : FormGroup;
   items!: MenuItem[];
+  private _isConnected! : Boolean;
+
+  get isConnected()
+  {
+    return this._isConnected;
+  }
+
+
   constructor(private _builder : FormBuilder,private _customerService:CustomerService,private _router : Router,private _authService:AuthService)
   {
     //On crée un nouveau formulaire grâce à notre FormBuilder et on le stocke dans notre propriété registerForm
@@ -58,7 +67,7 @@ GetListCustomer()
 
   showcustomer()
   {
-    console.log(this.FindCustomerForm.controls['IdUserSelected'].value);
+    //console.log(this.FindCustomerForm.controls['IdUserSelected'].value);
 
     if(this.FindCustomerForm.controls['IdUserSelected'].value != '0')
     {
@@ -71,10 +80,16 @@ GetListCustomer()
 logout()
   {
     this._authService.logout();
-    
   }
 
   ngOnInit() {
+    //recuperation de observable is connected
+    this._authService.IsConnected.subscribe({
+      next: (value : Boolean) =>
+      {
+        console.log("new value : " + value)
+        this._isConnected=value
+      }});
 
       this.items = [
         {
