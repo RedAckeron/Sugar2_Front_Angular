@@ -20,7 +20,7 @@
           <button pButton type="button" label="Ajouter Bon de commande" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddCmd(IdUser,CurrentCustomer.id)"></button>
           <button pButton type="button" label="Ajouter Facture" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddFct()"></button>
           <button pButton type="button" label="Ajouter Repair" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddRpr()"></button>
-          <button pButton type="button" label="Ajouter Download Content" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddDlc()"></button>
+          <button pButton type="button" label="Ajouter Download Content" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddDlc(IdUser,CurrentCustomer.id)"></button>
         </p-tabPanel>
         <p-tabPanel header="Rentabilité">
           <li>Analyse de la rentabilité d un client</li>
@@ -60,27 +60,27 @@
     </p-accordionTab>
 
     <!-- Odp -->
-    <p-accordionTab header="{{CurrentCustomer.id}} Offre de prix ({{CustomerSummary.qtOdp}})" *ngIf="CustomerSummary.qtOdp">
+    <p-accordionTab header="Offre de prix ({{CustomerSummary.qtOdp}})" *ngIf="CustomerSummary.qtOdp">
       <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
     </p-accordionTab>
 
     <!-- Cmd -->
-    <p-accordionTab header="Bon de commande ({{CustomerSummary.qtCmd}})" *ngIf="CustomerSummary.qtOdp">
+    <p-accordionTab header="Bon de commande ({{CustomerSummary.qtCmd}})" *ngIf="CustomerSummary.qtCmd">
       <app-cmd [IdCustomer]="CurrentCustomer.id"></app-cmd>
     </p-accordionTab>
 
     <!-- Fct -->
-    <p-accordionTab header="facture ({{CustomerSummary.qtFct}})" *ngIf="CustomerSummary.qtOdp">
+    <p-accordionTab header="facture ({{CustomerSummary.qtFct}})" *ngIf="CustomerSummary.qtFct">
       <app-fct [IdCustomer]="CurrentCustomer.id"></app-fct>
     </p-accordionTab>
 
     <!-- Rpr -->
-    <p-accordionTab header="Réparration ({{CustomerSummary.qtRpr}})" *ngIf="CustomerSummary.qtOdp">
+    <p-accordionTab header="Réparration ({{CustomerSummary.qtRpr}})" *ngIf="CustomerSummary.qtRpr">
       <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
     </p-accordionTab>
 
     <!-- Dlc -->
-    <p-accordionTab header="Download Content ({{CustomerSummary.qtDlc}})" *ngIf="CustomerSummary.qtOdp">
+    <p-accordionTab header="Download Content ({{CustomerSummary.qtDlc}})" *ngIf="CustomerSummary.qtDlc">
       <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
     </p-accordionTab>
 

@@ -8,6 +8,7 @@ import { CustomerAddress } from 'src/app/Models/customerAddress';
 import { AddressService } from 'src/app/Services/address.service';
 import { CmdService } from 'src/app/Services/cmd.service';
 import { CustomerService } from 'src/app/Services/customer.service';
+import { DlcService } from 'src/app/Services/dlc.service';
 import { OdpService } from 'src/app/Services/odp.service';
 import { TokenService } from 'src/app/Services/token.service';
 import { UserService } from 'src/app/Services/user.service';
@@ -35,7 +36,8 @@ export class ShowCustomerComponent implements OnInit
     private _router:Router,
     private _userService:UserService,
     private _odpService:OdpService,
-    private _cmdService:CmdService
+    private _cmdService:CmdService,
+    private _dlcService:DlcService
     )
     {
       this.IdUser=parseInt(_tokenService.getToken()??"");
@@ -120,11 +122,18 @@ AddRpr()
   {
   this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Réparation ajouté' });
   }
-AddDlc()
+AddDlc(IdUser:number,IdCustomer:number)
   {
-  this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Download content ajouté' });
-  }
+    this._dlcService.AddDlc(IdUser,IdCustomer).subscribe(data=>{
 
+      if(data==1)
+        {
+          this._customerService.ReadCustomerSummary(IdCustomer).subscribe(data=>this.CustomerSummary=data);
+          this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Download Content ajouté' });
+        }
+      else this.messageService.add({ severity: 'error', summary: 'Echec', detail: 'Download Content non ajouté' });
+  })
+  }
   //this._customerService.GetCustomer(1).subscribe((data)=>this.CurrentCustomer=data);
 
 
