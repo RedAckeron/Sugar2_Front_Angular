@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router, RouterLink } from '@angular/router';
 import { MenuItem, PrimeIcons } from 'primeng/api';
-import { Customer } from 'src/app/Models/Customer';
+import { Customer } from 'src/app/models/CustomerModel';
 import { AuthService } from 'src/app/Services/auth.service';
 import { CustomerService } from 'src/app/Services/customer.service';
 

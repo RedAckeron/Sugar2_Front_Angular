@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { concatWith } from 'rxjs';
-import { Customer } from 'src/app/Models/Customer';
-import { CustomerAddress } from 'src/app/Models/customerAddress';
+import { Customer } from 'src/app/models/CustomerModel';
+import { CustomerAddress } from 'src/app/models/customerAddress';
 import { CustomerService } from 'src/app/Services/customer.service';
 
 @Component({

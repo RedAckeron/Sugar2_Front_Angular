@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { OdpLight } from 'src/app/Models/Odp';
+import { OdpLight } from 'src/app/models/odp';
 import { OdpService } from 'src/app/Services/odp.service';
 
 @Component({

@@ -44,44 +44,36 @@
       <app-coord [IdCustomer]="CurrentCustomer.id"></app-coord>
     </p-accordionTab>
 
-    <!-- Adresse 1 -->
-    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[0].adrInfo}}" *ngIf="CustomerSummary.qtAdr>0">
-    Adresse 1
-    </p-accordionTab>
+    <p-accordionTab header="Adresse 1">
+      Adresse 1
+      </p-accordionTab>
+  
+      <p-accordionTab header="Adresse 2">
+        Adresse 2
+      </p-accordionTab>
+  
+      <p-accordionTab header="Adresse 3">
+         Adresse 3
+      </p-accordionTab>
 
-    <!-- Adresse 2 -->
-    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[1].adrInfo}}" *ngIf="CustomerSummary.qtAdr>1">
-      Adresse 2
-    </p-accordionTab>
+      <p-accordionTab header="Offre de prix" >
+        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
+      </p-accordionTab>
+  
+      <p-accordionTab header="Bon de commande">
+        <app-cmd [IdCustomer]="CurrentCustomer.id"></app-cmd>
+      </p-accordionTab>
+  
+      <p-accordionTab header="facture" >
+        <app-fct [IdCustomer]="CurrentCustomer.id"></app-fct>
+      </p-accordionTab>
+  
+      <p-accordionTab header="Réparration">
+        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
+      </p-accordionTab>
 
-    <!-- Adresse 3 -->
-    <p-accordionTab header="Adresse {{CurrentCustomer.adresses[2].adrInfo}}" *ngIf="CustomerSummary.qtAdr>2">
-       Adresse 3
-    </p-accordionTab>
-
-    <!-- Odp -->
-    <p-accordionTab header="Offre de prix ({{CustomerSummary.qtOdp}})" *ngIf="CustomerSummary.qtOdp">
-      <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
-    </p-accordionTab>
-
-    <!-- Cmd -->
-    <p-accordionTab header="Bon de commande ({{CustomerSummary.qtCmd}})" *ngIf="CustomerSummary.qtCmd">
-      <app-cmd [IdCustomer]="CurrentCustomer.id"></app-cmd>
-    </p-accordionTab>
-
-    <!-- Fct -->
-    <p-accordionTab header="facture ({{CustomerSummary.qtFct}})" *ngIf="CustomerSummary.qtFct">
-      <app-fct [IdCustomer]="CurrentCustomer.id"></app-fct>
-    </p-accordionTab>
-
-    <!-- Rpr -->
-    <p-accordionTab header="Réparration ({{CustomerSummary.qtRpr}})" *ngIf="CustomerSummary.qtRpr">
-      <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
-    </p-accordionTab>
-
-    <!-- Dlc -->
-    <p-accordionTab header="Download Content ({{CustomerSummary.qtDlc}})" *ngIf="CustomerSummary.qtDlc">
-      <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
-    </p-accordionTab>
-
+      <p-accordionTab header="Download Content" >
+        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
+      </p-accordionTab> 
+  
   </p-accordion>

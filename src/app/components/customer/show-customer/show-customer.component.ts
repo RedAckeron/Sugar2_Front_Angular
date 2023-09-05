@@ -2,15 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { forkJoin } from 'rxjs';
-import { Customer } from 'src/app/Models/Customer';
-import { CustomerSummary } from 'src/app/Models/CustomerSummary';
-import { CustomerAddress } from 'src/app/Models/customerAddress';
+import { Customer } from 'src/app/models/CustomerModel';
+import { CustomerSummary } from 'src/app/models/customerSummary';
+import { CustomerAddress } from 'src/app/models/customerAddress';
 import { AddressService } from 'src/app/Services/address.service';
 import { CmdService } from 'src/app/Services/cmd.service';
 import { CustomerService } from 'src/app/Services/customer.service';
 import { DlcService } from 'src/app/Services/dlc.service';
 import { OdpService } from 'src/app/Services/odp.service';
-import { TokenService } from 'src/app/Services/token.service';
+import { TokenService } from 'src/app/Services/Token.service';
 import { UserService } from 'src/app/Services/user.service';
 
 @Component({

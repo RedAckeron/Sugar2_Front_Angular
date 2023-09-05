@@ -1,10 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
-import { User } from '../Models/User';
 import { BehaviorSubject, Observable, map } from 'rxjs';
 import { environment } from '../environements/environement';
-import { TokenService } from './token.service';
-import { UserFormLogin } from '../Models/Forms/UserFormLogin';
+import { User } from '../models/User';
+import { UserFormLogin } from '../models/Forms/UsersFormLogin';
+import { TokenService } from './Token.service';
 environment
 @Injectable({
   providedIn: 'root'

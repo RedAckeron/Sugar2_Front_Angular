@@ -1,9 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CmdLight } from '../models/Cmd';
-import { Odp, OdpLight } from '../Models/Odp';
-import { TokenService } from './token.service';
+import { Odp, OdpLight } from '../models/odp';
+
 @Injectable({
   providedIn: 'root'
 })

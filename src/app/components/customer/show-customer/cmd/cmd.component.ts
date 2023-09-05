@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CmdLight } from 'src/app/models/Cmd';
+import { CmdLight } from 'src/app/models/CmdModel';
 import { CmdService } from 'src/app/Services/cmd.service';
 
 @Component({

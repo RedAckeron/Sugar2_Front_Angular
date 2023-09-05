@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OdpLight } from '../Models/Odp';
-import { DlcLight } from '../Models/Dlc';
+import { OdpLight } from '../models/odp';
+import { DlcLight } from '../models/DlcModel';
 
 @Injectable({
   providedIn: 'root'

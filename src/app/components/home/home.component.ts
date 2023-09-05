@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {  MessageService } from 'primeng/api';
 import { interval } from 'rxjs';
-import { User } from 'src/app/Models/User';
+import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/Services/auth.service';
 
 

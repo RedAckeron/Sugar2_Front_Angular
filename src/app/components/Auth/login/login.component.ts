@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserFormLogin } from 'src/app/Models/Forms/UserFormLogin';
-import { User } from 'src/app/Models/User';
+import { UserFormLogin } from 'src/app/models/Forms/UsersFormLogin';
+import { User } from 'src/app/models/User';
 import { AuthService } from 'src/app/Services/auth.service';
-import { TokenService } from 'src/app/Services/token.service';
+import { TokenService } from 'src/app/Services/Token.service';
 import { UserService } from 'src/app/Services/user.service';
 @Component({
   selector: 'app-login',
