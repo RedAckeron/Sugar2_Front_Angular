@@ -23,7 +23,6 @@ import { ToastModule } from 'primeng/toast';
 import { OdpComponent } from './components/customer/show-customer/odp/odp.component';
 import { FctComponent } from './components/customer/show-customer/fct/fct.component';
 import { RprComponent } from './components/customer/show-customer/rpr/rpr.component';
-import { DlcComponent } from './components/customer/show-customer/dlc/dlc.component';
 import { CmdComponent } from './components/customer/show-customer/cmd/cmd.component';
 import { SplitButtonModule } from 'primeng/splitbutton';
 import { TabViewModule } from 'primeng/tabview';
@@ -32,6 +31,8 @@ import { CoordComponent } from './components/customer/show-customer/coord/coord.
 import { AccordionModule} from 'primeng/accordion';
 import { MenubarModule} from 'primeng/menubar';
 import { LoginComponent } from './components/Auth/login/login.component';
+import { ListCmdComponent } from './Components/command/list-cmd/list-cmd.component';
+import { ListOdpComponent } from './Components/Odp/list-odp/list-odp.component';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -52,10 +53,11 @@ import { LoginComponent } from './components/Auth/login/login.component';
     OdpComponent,
     FctComponent,
     RprComponent,
-    DlcComponent,
     CmdComponent,
     CoordComponent,
     LoginComponent,
+    ListCmdComponent,
+    ListOdpComponent,
     ],
   imports: [
     BrowserModule,

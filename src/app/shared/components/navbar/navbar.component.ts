@@ -101,54 +101,18 @@ logout()
           ]
         },
         {
-            label: 'Offre de prix',
+            label: 'Consultation',
             icon: 'pi pi-fw pi-pencil',
             items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
+                {label: 'Offre de prix', icon: 'pi pi-fw pi-trash',routerLink: ['/odp/list']},
+                {label: 'Bon de commande', icon: 'pi pi-fw pi-trash',routerLink: ['/cmd/list']},
+                {label: 'Facture', icon: 'pi pi-fw pi-trash',routerLink: ['/fct/list']},
+                {label: 'Repair', icon: 'pi pi-fw pi-trash',routerLink: ['/rpr/list']},
+                {label: 'Download content', icon: 'pi pi-fw pi-trash',routerLink: ['/dlc/list']},
+                {label: 'Articles', icon: 'pi pi-fw pi-refresh',routerLink: ['/item/list']}
             ]
-        },
-        {
-            label: 'Bon de commande',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-            ]
-        },
-        {
-            label: 'Facture',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-            ]
-        },
-        {
-            label: 'Repair',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-            ]
-        },
-        {
-            label: 'Dlc',
-            icon: 'pi pi-fw pi-pencil',
-            items: [
-                {label: 'Delete', icon: 'pi pi-fw pi-trash'},
-                {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
-            ]
-        },
-        {
-          label: 'Article',
-          icon: 'pi pi-fw pi-pencil',
-          items: [
-              {label: 'List', icon: 'pi pi-fw pi-trash'},
-              {label: 'Add', icon: 'pi pi-fw pi-refresh'}
-          ]
       },
-        {label: 'Admin', icon: 'pi pi-download', routerLink: ['/pagename']},
+        {label: 'Admin', icon: 'pi pi-download', routerLink: ['/home']},
         {label: 'Logout', icon: 'pi pi-download',command:(event)=>{this.logout();} },
       ];
 

@@ -19,11 +19,14 @@ export class OdpComponent {
     //console.log("IDCUST : "+this.Idcustomer);
     this._odpService.ReadAllOdpLight(this.IdCustomer).subscribe(
       {
-        next:(data:OdpLight[])=>{this.ListOdp=data;console.log(data);
-        },
+        next:(data:OdpLight[])=>
+          {
+            this.ListOdp=data;
+
+          },
         complete:()=>
         {
-          console.table(this.ListOdp);
+          //console.table(this.ListOdp);
         }
       })
   }

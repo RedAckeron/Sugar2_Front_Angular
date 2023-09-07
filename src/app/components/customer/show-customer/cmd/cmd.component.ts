@@ -10,6 +10,7 @@ import { CmdService } from 'src/app/Services/cmd.service';
 export class CmdComponent implements OnInit {
 
   @Input() IdCustomer!:number;
+
   ListCmd : CmdLight[]=[];
 
   constructor(private _cmdService:CmdService){}

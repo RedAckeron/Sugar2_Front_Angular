@@ -15,12 +15,12 @@
     <p-accordionTab header="Profil Client :  {{CurrentCustomer.firstName}} {{CurrentCustomer.lastName}}"[selected]="true">
       <p-tabView>
         <p-tabPanel header="Ajouter">
-          <button pButton type="button" label="Ajouter Adresse" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddAdr()"></button>
-          <button pButton type="button" label="Ajouter Offre de prix" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddOdp(IdUser,CurrentCustomer.id)"></button>
-          <button pButton type="button" label="Ajouter Bon de commande" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddCmd(IdUser,CurrentCustomer.id)"></button>
-          <button pButton type="button" label="Ajouter Facture" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddFct()"></button>
-          <button pButton type="button" label="Ajouter Repair" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddRpr()"></button>
-          <button pButton type="button" label="Ajouter Download Content" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddDlc(IdUser,CurrentCustomer.id)"></button>
+          <button pButton type="button" label="Adresse" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddAdr()"></button>
+          <button pButton type="button" label="Offre de prix" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddOdp(IdUser,CurrentCustomer.id)"></button>
+          <button pButton type="button" label="Bon de commande" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddCmd(IdUser,CurrentCustomer.id)"></button>
+          <button pButton type="button" label="Facture" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddFct()"></button>
+          <button pButton type="button" label="Repair" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddRpr()"></button>
+          <button pButton type="button" label="Download Content" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddDlc(IdUser,CurrentCustomer.id)"></button>
         </p-tabPanel>
         <p-tabPanel header="Rentabilité">
           <li>Analyse de la rentabilité d un client</li>
@@ -47,33 +47,33 @@
     <p-accordionTab header="Adresse 1">
       Adresse 1
       </p-accordionTab>
-  
+
       <p-accordionTab header="Adresse 2">
         Adresse 2
       </p-accordionTab>
-  
+
       <p-accordionTab header="Adresse 3">
          Adresse 3
       </p-accordionTab>
 
-      <p-accordionTab header="Offre de prix" >
-        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
+      <p-accordionTab header="Offre de prix ({{this.QtOdp}})" *ngIf="this.QtOdp>0">
+        <app-odp [CurrentCustomer]="CurrentCustomer.id"></app-odp>
       </p-accordionTab>
-  
-      <p-accordionTab header="Bon de commande">
+
+      <p-accordionTab header="Bon de commande ({{this.QtCmd}})" *ngIf="this.QtCmd>0">
         <app-cmd [IdCustomer]="CurrentCustomer.id"></app-cmd>
       </p-accordionTab>
-  
+
       <p-accordionTab header="facture" >
         <app-fct [IdCustomer]="CurrentCustomer.id"></app-fct>
       </p-accordionTab>
-  
+
       <p-accordionTab header="Réparration">
-        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
+        <app-rpr [IdCustomer]="CurrentCustomer.id"></app-rpr>
       </p-accordionTab>
 
       <p-accordionTab header="Download Content" >
-        <app-odp [IdCustomer]="CurrentCustomer.id"></app-odp>
-      </p-accordionTab> 
-  
+        <app-dlc [IdCustomer]="CurrentCustomer.id"></app-dlc>
+      </p-accordionTab>
+
   </p-accordion>
