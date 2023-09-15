@@ -1,6 +1,6 @@
 import {  HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
 import { environment } from '../environements/environement';
 import { User } from '../models/User';
 
@@ -8,12 +8,21 @@ import { User } from '../models/User';
   providedIn: 'root'
 })
 export class UserService {
+  private _CurrentCustomerSubject : BehaviorSubject<number> = new BehaviorSubject<number>(0);
+
+  get CurrentCustomer() : BehaviorSubject<number>
+  {
+    return this._CurrentCustomerSubject;
+  }
+
 
   constructor(private _httpClient:HttpClient) { }
 
 SetCurrentCustomer(CurrentCustomer:number):void
   {
+    
   sessionStorage.setItem("CurrentCustomer",CurrentCustomer.toString())
+  this._CurrentCustomerSubject.next(CurrentCustomer);
   }
 
 GetCurrentCustomer():number

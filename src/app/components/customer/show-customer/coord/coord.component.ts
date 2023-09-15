@@ -3,8 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MessageService } from 'primeng/api';
 import { concatWith } from 'rxjs';
+import { Adr } from 'src/app/models/AdrModel';
 import { Customer } from 'src/app/models/CustomerModel';
-import { CustomerAddress } from 'src/app/models/customerAddress';
 import { CustomerService } from 'src/app/Services/customer.service';
 
 @Component({
@@ -54,7 +54,7 @@ ngOnInit(): void {
     else
         {
         console.log("valid form");
-        let custAdr =new Array<CustomerAddress>;
+        let custAdr =new Array<Adr>;
         let cust=new Customer(
         this.customer.id,
         this.registerForm.value.FirstName,

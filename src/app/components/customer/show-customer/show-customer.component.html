@@ -1,6 +1,6 @@
 
 <!-- Si les datas sont pas chargé on affiche le loading -->
-<div *ngIf="!CurrentCustomer" style="margin: auto;width: 110px;">
+<div *ngIf="!CustomerSummary" style="margin: auto;width: 110px;">
   <button class="btn btn-primary" type="button" disabled>
     <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
     <span role="status">Loading...</span>
@@ -8,20 +8,21 @@
 </div>
 <p-toast></p-toast>
 <!-- Quand les données sont charger on affiche l accordeon -->
-<div *ngIf="CurrentCustomer">
+<div *ngIf="CustomerSummary">
   <p-accordion>
 
 <!-- Profil Client -->
     <p-accordionTab header="Profil Client :  {{CurrentCustomer.firstName}} {{CurrentCustomer.lastName}}"[selected]="true">
       <p-tabView>
         <p-tabPanel header="Ajouter">
-          <button pButton type="button" label="Adresse" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddAdr()"></button>
+          <button pButton type="button" label="Adresse" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddAdr(IdUser,CurrentCustomer.id)"></button>
           <button pButton type="button" label="Offre de prix" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddOdp(IdUser,CurrentCustomer.id)"></button>
           <button pButton type="button" label="Bon de commande" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddCmd(IdUser,CurrentCustomer.id)"></button>
-          <button pButton type="button" label="Facture" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddFct()"></button>
-          <button pButton type="button" label="Repair" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddRpr()"></button>
+          <button pButton type="button" label="Facture" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddFct(IdUser,CurrentCustomer.id)"></button>
+          <button pButton type="button" label="Repair" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddRpr(IdUser,CurrentCustomer.id)"></button>
           <button pButton type="button" label="Download Content" icon="pi pi-check" class="p-button-sm" style="height:20px;margin:5px"(click)="AddDlc(IdUser,CurrentCustomer.id)"></button>
-        </p-tabPanel>
+      
+        </p-tabPanel> 
         <p-tabPanel header="Rentabilité">
           <li>Analyse de la rentabilité d un client</li>
           <li>Ratio de visite par an </li>
@@ -43,37 +44,39 @@
     <p-accordionTab header="Coordonées client">
       <app-coord [IdCustomer]="CurrentCustomer.id"></app-coord>
     </p-accordionTab>
+    <!-- adr 1-->
+    <p-accordionTab header="[0]Adresse {{this.CustomerSummary.adrLights[0].adrInfo}}" *ngIf="this.CustomerSummary.adrLights.length>0">
+      <app-adr  [IdAdr]="CustomerSummary.adrLights[0].id"></app-adr>
+    </p-accordionTab> 
+   
+    <!-- adr 2-->
+    <p-accordionTab header="[1]Adresse {{this.CustomerSummary.adrLights[1].adrInfo}}" *ngIf="this.CustomerSummary.adrLights.length>1">
+      <app-adr  [IdAdr]="CustomerSummary.adrLights[1].id"></app-adr>
+    </p-accordionTab> 
 
-    <p-accordionTab header="Adresse 1">
-      Adresse 1
-      </p-accordionTab>
+    <!-- adr 3-->
+    <p-accordionTab header="[2]Adresse {{this.CustomerSummary.adrLights[2].adrInfo}}" *ngIf="this.CustomerSummary.adrLights.length>2">
+      <app-adr  [IdAdr]="CustomerSummary.adrLights[2].id"></app-adr>
+    </p-accordionTab> 
 
-      <p-accordionTab header="Adresse 2">
-        Adresse 2
-      </p-accordionTab>
+    <p-accordionTab header="Offre de prix ({{this.CustomerSummary.odpLights.length}})" *ngIf="this.CustomerSummary.odpLights.length>0">
+      <app-odp [CustomerSummary]="CustomerSummary"></app-odp>
+    </p-accordionTab>
 
-      <p-accordionTab header="Adresse 3">
-         Adresse 3
-      </p-accordionTab>
+    <p-accordionTab header="Bon de commande ({{this.CustomerSummary.cmdLights.length}})" *ngIf="this.CustomerSummary.cmdLights.length>0">
+      <app-cmd [CustomerSummary]="CustomerSummary"></app-cmd>
+    </p-accordionTab>
 
-      <p-accordionTab header="Offre de prix ({{this.QtOdp}})" *ngIf="this.QtOdp>0">
-        <app-odp [CurrentCustomer]="CurrentCustomer.id"></app-odp>
-      </p-accordionTab>
+    <p-accordionTab header="facture ({{this.CustomerSummary.fctLights.length}})" *ngIf="this.CustomerSummary.fctLights.length>0">
+      <app-fct [CustomerSummary]="CustomerSummary"></app-fct>
+    </p-accordionTab>
 
-      <p-accordionTab header="Bon de commande ({{this.QtCmd}})" *ngIf="this.QtCmd>0">
-        <app-cmd [IdCustomer]="CurrentCustomer.id"></app-cmd>
-      </p-accordionTab>
+    <p-accordionTab header="Réparration ({{this.CustomerSummary.rprLights.length}})" *ngIf="this.CustomerSummary.rprLights.length>0">
+      <app-rpr [CustomerSummary]="CustomerSummary"></app-rpr>
+    </p-accordionTab>
 
-      <p-accordionTab header="facture" >
-        <app-fct [IdCustomer]="CurrentCustomer.id"></app-fct>
-      </p-accordionTab>
-
-      <p-accordionTab header="Réparration">
-        <app-rpr [IdCustomer]="CurrentCustomer.id"></app-rpr>
-      </p-accordionTab>
-
-      <p-accordionTab header="Download Content" >
-        <app-dlc [IdCustomer]="CurrentCustomer.id"></app-dlc>
-      </p-accordionTab>
+    <p-accordionTab header="Download Content ({{this.CustomerSummary.dlcLights.length}})" *ngIf="this.CustomerSummary.dlcLights.length>0">
+      <app-dlc [CustomerSummary]="CustomerSummary"></app-dlc>
+    </p-accordionTab>
 
   </p-accordion>

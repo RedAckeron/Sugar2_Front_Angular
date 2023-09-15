@@ -87,11 +87,12 @@ logout()
     this._authService.IsConnected.subscribe({
       next: (value : Boolean) =>
       {
-        console.log("new value : " + value)
+        //console.log("new value : " + value)
         this._isConnected=value
       }});
 
       this.items = [
+        {label: 'Home', icon: 'pi pi-fw pi-refresh',routerLink: ['/home']},
         {
           label: 'Client',
           icon: 'pi pi-fw pi-pencil',

@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { CustomerSummary } from 'src/app/models/customerSummary';
 import { OdpLight } from 'src/app/models/odp';
 import { OdpService } from 'src/app/Services/odp.service';
 
@@ -9,25 +10,9 @@ import { OdpService } from 'src/app/Services/odp.service';
 })
 export class OdpComponent {
 
-  @Input() IdCustomer!:number;
+  @Input() CustomerSummary!:CustomerSummary;
 
-  ListOdp : OdpLight[]=[];
 
-  constructor(private _odpService:OdpService){}
-  ngOnInit(): void
-  {
-    //console.log("IDCUST : "+this.Idcustomer);
-    this._odpService.ReadAllOdpLight(this.IdCustomer).subscribe(
-      {
-        next:(data:OdpLight[])=>
-          {
-            this.ListOdp=data;
-
-          },
-        complete:()=>
-        {
-          //console.table(this.ListOdp);
-        }
-      })
-  }
+  constructor(){}
+ 
 }

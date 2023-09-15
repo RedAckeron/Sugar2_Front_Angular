@@ -24,8 +24,10 @@ export class AuthService {
   constructor(private _httpClient: HttpClient,private _tokenService:TokenService)
   {
     let token :string | null =this._tokenService.getToken();
-    console.log("TOKEN : "+token);
-
+    //console.log("TOKEN : "+token);
+    let IdUser:number=this._tokenService.getUserId();
+    //console.log("Type de userid : "+typeof(IdUser));
+    
     if(token)
     {
       this._UserSubject = new BehaviorSubject<User|null>(JSON.parse(token))
@@ -51,19 +53,19 @@ export class AuthService {
     return this._httpClient.post<any>(`${environment.apiUrl }/User/Login/`,{email:userform.Email,password:userform.Password})
     .pipe(map(user=>
         {
-        this._UserSubject.next(user.token);
-        this.IsConnected.next(true);
-        return user;
+          if(user.id!=0)
+          {
+            this._UserSubject.next(user.token);
+            this.IsConnected.next(true);
+          }
+          return user;
         }))
-
     }
-
+ 
   logout()
     {
     sessionStorage.removeItem("IdUser");
     this.IsConnected.next(false);
-
-    //this.IsConnected=false;
     }
 
 

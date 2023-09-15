@@ -9,9 +9,11 @@ import { ProfilComponent } from './components/user/profil/profil.component';
 import { LobbyComponent } from './components/Admin/lobby/lobby.component';
 import { HomeComponent } from './components/Home/home.component';
 import { NotFoundComponent } from './components/Not-found/not-found.component';
+import { TestComponent } from './components/test/test.component';
 
 
 const routes: Routes = [
+  {path : 'test',component : TestComponent},
   {path : '',component : HomeComponent},
   {path : 'home',component : HomeComponent},
 

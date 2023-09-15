@@ -16,8 +16,11 @@ export class TokenService {
   }
 
   public getToken(): string|null {
-
    return sessionStorage.getItem('IdUser');
+    }
+    
+    public getUserId():number{
+      return parseInt(sessionStorage.getItem('IdUser')??"");
     }
 
   public getRefreshToken(): string|null {

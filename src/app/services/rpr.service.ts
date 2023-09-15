@@ -20,5 +20,4 @@ export class RprService {
     {
     return this._httpClient.get<RprLight[]>(this._url + "ReadAllOdpLight/" + IdCust);
     }
-
 }

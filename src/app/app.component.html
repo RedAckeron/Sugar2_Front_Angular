@@ -1,9 +1,17 @@
-<div class="container">
+<div class="container"*ngIf="isConnected">
   <app-navbar></app-navbar>
     <div class="content">
       <router-outlet></router-outlet>
-      <app-login *ngIf="!isConnected"></app-login>
     </div>
-  <app-footer></app-footer>
+  <div class="footer"><app-footer></app-footer></div>
 </div>
 
+<div class="container"*ngIf="!isConnected">
+  <div class="content">
+    <app-home></app-home>
+    <app-login *ngIf="!isConnected"></app-login>
+  </div>
+  <div class="footer">
+    <app-footer></app-footer>
+  </div>
+</div>

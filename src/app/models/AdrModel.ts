@@ -1,7 +1,6 @@
-export class CustomerAddress
+export class Adr
 {
     id!:number;
-    idCustomer!:number;
     adrInfo!:string;
     adrRue!:string;
     adrNo!:string;
@@ -22,3 +21,13 @@ export class CustomerAddress
 //     }
 
 }
+export class AdrLight
+     {
+      id:number;
+      adrInfo:string;
+      constructor(Id:number,AdrInfo:string)
+      {
+      this.id=Id;
+      this.adrInfo=AdrInfo;
+      }
+     }

@@ -1,18 +1,42 @@
-.WelcomeText{
+.WelcomeText
+{
     min-width: 400px;
-    min-height: 20%;
-    max-width: 400px;
-    max-height: 200px;
-    border: solid rgb(132, 182, 240) 2px;
-    max-width: 200px;
+    width: 80%;
+    background-color: #F8F9FA ;   
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 20px auto;
+    padding: 10px;
+    font-size: medium;
+}
+
+.titre
+{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin: 20px auto;
+    background-color: #F8F9FA ;   
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.LogoContainer
+{  
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    height: auto;   
     margin: 20px auto;
 }
 
-.welcome{
-    min-width: 200px;
-    min-height: 20%;
-    max-width: 400px;
-    max-height: 200px;
-    background-image: url("../../../assets/img/sugar_logo.jpg");
-    border: 2px solid red;
+.Logo
+{
+    width: 200px;
+    background-color: white;
+    height: 200px;
+    background-image: url("../../../assets/img/sugar_logo_mini.jpg");
+    background-size: 200px;
+    border: solid 1px black;
+    border-radius: 5px;
 }

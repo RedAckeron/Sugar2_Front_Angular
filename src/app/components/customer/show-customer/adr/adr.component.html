@@ -1,0 +1,59 @@
+
+<!-- Si les datas sont pas chargé on affiche le loading -->
+<div *ngIf="!currentAdr" style="margin: auto;width: 110px;">
+    <button class="btn btn-primary" type="button" disabled>
+      <span class="spinner-border spinner-border-sm" aria-hidden="true"></span>
+      <span role="status">Loading...</span>
+    </button>
+  </div>
+
+
+
+  
+<div class="container" *ngIf="currentAdr">
+
+    <form  [formGroup]="registerForm" (ngSubmit)="register()">
+    <div class="boxform">
+    <span class="p-float-label">
+        <input pInputText id="adrInfo" formControlName="adrInfo" [(ngModel)]="this.currentAdr.adrInfo" />
+        <label htmlFor="adrInfo">Info : </label>
+    </span>
+    </div>
+
+    <div class="boxform">
+        <span class="p-float-label">
+        <input pInputText id="adrRue" formControlName="adrRue" [(ngModel)]="this.currentAdr.adrRue" />
+        <label htmlFor="adrRue">Rue : </label>
+    </span>
+    </div>
+
+    <div class="boxform">
+        <span class="p-float-label">
+            <input pInputText id="adrNo" formControlName="adrNo" [(ngModel)]="this.currentAdr.adrNo" />
+            <label htmlFor="adrNo">No : </label>
+        </span>
+        </div>
+        
+        <div class="boxform">
+            <span class="p-float-label">
+            <input pInputText id="adrVille" formControlName="adrVille" [(ngModel)]="this.currentAdr.adrVille" />
+            <label htmlFor="adrVille">Ville : </label>
+        </span>
+        </div>
+        
+        <div class="boxform">
+            <span class="p-float-label">
+            <input pInputText id="adrCp" formControlName="adrCp" [(ngModel)]="this.currentAdr.adrCp" />
+            <label htmlFor="adrCp">Code postal : </label>
+        </span>
+        </div>
+        
+        <div class="boxform">
+            <span class="p-float-label">
+            <input pInputText id="adrPays" formControlName="adrPays" [(ngModel)]="this.currentAdr.adrPays">
+            <label htmlFor="adrPays">Pays : </label>
+        </span>
+        </div>
+    </form>
+    
+</div>

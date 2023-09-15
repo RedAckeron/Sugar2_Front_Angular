@@ -1,15 +1,20 @@
-<table class="table table-striped" style="margin: 0; padding: 0;">
-    <thead>
-    <tr>
-        <th scope="col">Id Cmd</th>
-        <th scope="col">Date In</th>
-    </tr>
-    </thead>
-    <tbody>
-        <!-- <tr *ngFor="let item of this.ListCmd; let i=index" [routerLink]="['/cmd/show/'+item.id]" > -->
-        <tr *ngFor="let item of this.ListOdp; let i=index"  >
-        <td><div>  {{item.id}}</div></td>
-        <td>{{item.dtIn | date:'d/MM/YYYY'}}</td>
-    </tr>
-    </tbody>
-</table>
+
+<div *ngIf="!CustomerSummary">no data</div>
+
+<div *ngIf="CustomerSummary">
+    <table class="table table-striped" style="margin: 0; padding: 0;">
+        <thead>
+        <tr>
+            <th scope="col">Id Cmd</th>
+            <th scope="col">Date In</th>
+        </tr>
+        </thead>
+        <tbody>
+            <!-- <tr *ngFor="let item of this.ListCmd; let i=index" [routerLink]="['/cmd/show/'+item.id]" > -->
+            <tr *ngFor="let item of this.CustomerSummary.odpLights; let i=index"  >
+            <td><div>  {{item.id}}</div></td>
+            <td>{{item.dtIn | date:'d/MM/YYYY'}}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

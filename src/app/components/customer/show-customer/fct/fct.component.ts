@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CustomerSummary } from 'src/app/models/customerSummary';
 
 @Component({
   selector: 'app-fct',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./fct.component.scss']
 })
 export class FctComponent {
+  @Input() CustomerSummary!:CustomerSummary;
 
 }

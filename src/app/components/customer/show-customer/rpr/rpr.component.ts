@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { CustomerSummary } from 'src/app/models/customerSummary';
 
 @Component({
   selector: 'app-rpr',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./rpr.component.scss']
 })
 export class RprComponent {
+  @Input() CustomerSummary!:CustomerSummary;
 
 }

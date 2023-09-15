@@ -1,6 +1,4 @@
-import { CustomerAddress } from "./customerAddress";
-
-CustomerAddress
+import { Adr } from "./AdrModel";
 export class Customer{
 
     id:number;
@@ -11,8 +9,8 @@ export class Customer{
     call2:string;
     dtIn:Date;
     addByUser:number;
-    adresses:Array<CustomerAddress>;
-    constructor(id:number,firstname:string,lastname:string,email:string,call1:string,call2:string,dtin:Date,addbyuser:number,addresses:CustomerAddress[])
+    adresses:Array<Adr>;
+    constructor(id:number,firstname:string,lastname:string,email:string,call1:string,call2:string,dtin:Date,addbyuser:number,addresses:Adr[])
     {
         this.id=id;
         this.firstName=firstname;

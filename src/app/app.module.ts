@@ -33,6 +33,10 @@ import { MenubarModule} from 'primeng/menubar';
 import { LoginComponent } from './components/Auth/login/login.component';
 import { ListCmdComponent } from './Components/command/list-cmd/list-cmd.component';
 import { ListOdpComponent } from './Components/Odp/list-odp/list-odp.component';
+import { DlcComponent } from './components/customer/show-customer/dlc/dlc.component';
+import { AdrComponent } from './components/customer/show-customer/adr/adr.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { TestComponent } from './components/test/test.component';
 
 @NgModule({
   schemas:[CUSTOM_ELEMENTS_SCHEMA],
@@ -58,6 +62,9 @@ import { ListOdpComponent } from './Components/Odp/list-odp/list-odp.component';
     LoginComponent,
     ListCmdComponent,
     ListOdpComponent,
+    DlcComponent,
+    AdrComponent,
+    TestComponent,
     ],
   imports: [
     BrowserModule,
@@ -73,8 +80,8 @@ import { ListOdpComponent } from './Components/Odp/list-odp/list-odp.component';
     TabViewModule,
     TagModule,
     AccordionModule,
-    MenubarModule
-
+    MenubarModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

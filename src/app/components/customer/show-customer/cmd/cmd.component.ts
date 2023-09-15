@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CmdLight } from 'src/app/models/CmdModel';
+import { CustomerSummary } from 'src/app/models/customerSummary';
 import { CmdService } from 'src/app/Services/cmd.service';
 
 @Component({
@@ -7,23 +8,12 @@ import { CmdService } from 'src/app/Services/cmd.service';
   templateUrl: './cmd.component.html',
   styleUrls: ['./cmd.component.scss']
 })
-export class CmdComponent implements OnInit {
+export class CmdComponent{
 
-  @Input() IdCustomer!:number;
+  @Input() CustomerSummary!:CustomerSummary;
 
-  ListCmd : CmdLight[]=[];
 
-  constructor(private _cmdService:CmdService){}
-  ngOnInit(): void
-  {
-    //console.log("IDCUST : "+this.Idcustomer);
-    this._cmdService.ReadAllCmdLight(this.IdCustomer).subscribe(
-      {
-        next:(data:CmdLight[])=>{this.ListCmd=data},
-        complete:()=>
-        {
-          //console.table(this.ListCmd);
-        }
-      })
-  }
+  constructor(){}
+ 
+  
 }
